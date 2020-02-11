@@ -1,0 +1,117 @@
+<ion-header>
+  <ion-toolbar color="nobles">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>My Schedule</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-segment [(ngModel)]="dayName" color="nobles" padding>
+    <ion-segment-button value="Monday">Mon</ion-segment-button>
+    <ion-segment-button value="Tuesday">Tue</ion-segment-button>
+    <ion-segment-button value="Wednesday">Wed</ion-segment-button>
+    <ion-segment-button value="Thursday">Thu</ion-segment-button>
+    <ion-segment-button value="Friday">Fri</ion-segment-button>
+  </ion-segment>
+
+  <div [ngSwitch]="dayName">
+
+    <div id="Monday" *ngSwitchCase="'Monday'">
+      <div *ngFor="let i of nums[0]">
+
+        <ion-label class="times" padding>
+          {{ dataProvider.startTimes[0][i] }} - {{ dataProvider.endTimes[0][i] }}
+        </ion-label>
+        <ion-item-divider color="{{ dataProvider.scheduleColors[0][i] }}">
+          <ion-label>
+            <div class="courseName">{{ dataProvider.courseNames[0][i] }}</div>
+            <div class="infoBelow">
+              {{ dataProvider.teachers[0][i] }}<br>
+              {{ dataProvider.locations[0][i] }}</div>
+          </ion-label>
+        </ion-item-divider>
+        <br>
+
+      </div>
+    </div>
+
+    <div id="Tuesday" *ngSwitchCase="'Tuesday'">
+      <div *ngFor="let i of nums[1]">
+
+        <ion-label class="times" padding>
+          {{ dataProvider.startTimes[1][i] }} - {{ dataProvider.endTimes[1][i] }}
+        </ion-label>
+        <ion-item-divider color="{{ dataProvider.scheduleColors[1][i] }}">
+          <ion-label>
+            <div class="courseName">{{ dataProvider.courseNames[1][i] }}</div>
+            <div class="infoBelow">
+              {{ dataProvider.teachers[1][i] }}<br>
+              {{ dataProvider.locations[1][i] }}</div>
+          </ion-label>
+        </ion-item-divider>
+        <br>
+
+      </div>
+    </div>
+
+    <div id="Wednesday" *ngSwitchCase="'Wednesday'">
+      <div *ngFor="let i of nums[2]">
+
+        <ion-label class="times" padding>
+          {{ dataProvider.startTimes[2][i] }} - {{ dataProvider.endTimes[2][i] }}
+        </ion-label>
+        <ion-item-divider color="{{ dataProvider.scheduleColors[2][i] }}">
+          <ion-label>
+            <div class="courseName">{{ dataProvider.courseNames[2][i] }}</div>
+            <div class="infoBelow">
+              {{ dataProvider.teachers[2][i] }}<br>
+              {{ dataProvider.locations[2][i] }}</div>
+          </ion-label>
+        </ion-item-divider>
+        <br>
+
+      </div>
+    </div>
+
+    <div id="Thursday" *ngSwitchCase="'Thursday'">
+      <div *ngFor="let i of nums[3]">
+
+        <ion-label class="times" padding>
+          {{ dataProvider.startTimes[3][i] }} - {{ dataProvider.endTimes[3][i] }}
+        </ion-label>
+        <ion-item-divider color="{{ dataProvider.scheduleColors[3][i] }}">
+          <ion-label>
+            <div class="courseName">{{ dataProvider.courseNames[3][i] }}</div>
+            <div class="infoBelow">
+              {{ dataProvider.teachers[3][i] }}<br>
+              {{ dataProvider.locations[3][i] }}</div>
+          </ion-label>
+        </ion-item-divider>
+        <br>
+
+      </div>
+    </div>
+
+    <div id="Friday" *ngSwitchCase="'Friday'">
+      <div *ngFor="let i of nums[4]">
+
+        <ion-label class="times" padding>
+          {{ dataProvider.startTimes[4][i] }} - {{ dataProvider.endTimes[4][i] }}
+        </ion-label>
+        <ion-item-divider color="{{ dataProvider.scheduleColors[4][i] }}">
+          <ion-label>
+            <div class="courseName">{{ dataProvider.courseNames[4][i] }}</div>
+            <div class="infoBelow">
+              {{ dataProvider.teachers[4][i] }}<br>
+              {{ dataProvider.locations[4][i] }}</div>
+          </ion-label>
+        </ion-item-divider>
+        <br>
+
+      </div>
+    </div>
+
+  </div>
+</ion-content>

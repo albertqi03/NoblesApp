@@ -1,0 +1,86 @@
+<ion-header>
+  <ion-toolbar color="nobles">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Directory</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list>
+    <ion-item>
+      <ion-input [(ngModel)]="dirFirstName" type="text" placeholder="First Name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input [(ngModel)]="dirLastName" type="text" placeholder="Last Name"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <ion-list>
+    <ion-header class="radio-select">
+      <ion-label><b>Type</b></ion-label>
+    </ion-header>
+    <ion-radio-group [(ngModel)]="dirPersonType">
+
+      <ion-item>
+        <ion-label>Student</ion-label>
+        <ion-radio slot="end" value="Student" color="nobles"></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Faculty</ion-label>
+        <ion-radio slot="end" value="Faculty" color="nobles"></ion-radio>
+      </ion-item>
+
+    </ion-radio-group>
+  </ion-list>
+
+  <ion-list>
+    <ion-header class="radio-select">
+      <ion-label><b>Class</b></ion-label>
+    </ion-header>
+    <ion-radio-group [(ngModel)]="dirClass">
+
+      <ion-item>
+        <ion-label>I</ion-label>
+        <ion-checkbox slot="end" value="1" color="nobles"></ion-checkbox>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>II</ion-label>
+        <ion-checkbox slot="end" value="2" color="nobles"></ion-checkbox>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>III</ion-label>
+        <ion-checkbox slot="end" value="3" color="nobles"></ion-checkbox>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>IV</ion-label>
+        <ion-checkbox slot="end" value="4" color="nobles"></ion-checkbox>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>V</ion-label>
+        <ion-checkbox slot="end" value="5" color="nobles"></ion-checkbox>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>VI</ion-label>
+        <ion-checkbox slot="end" value="6" color="nobles"></ion-checkbox>
+      </ion-item>
+
+    </ion-radio-group>
+  </ion-list>
+
+  <ion-button color="nobles" icon-start class="reset" (click)="reset()">
+    <ion-icon name='trash'></ion-icon>
+  </ion-button>
+  <ion-button color="nobles" fill="outline" icon-start class="search" (click)="getDirectoryData()">
+    <ion-icon name='search'></ion-icon>
+  </ion-button>
+
+</ion-content>

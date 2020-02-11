@@ -1,0 +1,22 @@
+ion-button {
+    width: 30%;
+}
+
+.search {
+    position: absolute;
+    right: 0;
+    margin-bottom: 10%;
+    margin-right: 10%;
+}
+
+.reset {
+    --border-width: 1px;
+    position: absolute;
+    left: 0;
+    margin-bottom: 10%;
+    margin-left: 10%;
+}
+
+.radio-select {
+    padding-bottom: 10px;
+}

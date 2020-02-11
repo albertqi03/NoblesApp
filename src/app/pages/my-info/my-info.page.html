@@ -1,0 +1,84 @@
+<ion-header>
+  <ion-toolbar color="nobles">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>My Information</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <img src='{{ dataProvider.Photo }}' alt="Profile Photo" class="center">
+
+  <ion-segment [(ngModel)]="infoType" color="nobles" padding>
+    <ion-segment-button value="about-me">About Me</ion-segment-button>
+    <ion-segment-button value="financial">Financial</ion-segment-button>
+    <ion-segment-button value="service">Service</ion-segment-button>
+  </ion-segment>
+
+  <div [ngSwitch]="infoType">
+
+    <ion-list *ngSwitchCase="'about-me'">
+      <ion-item>
+        <ion-label stacked color="nobles">Assembly Seat</ion-label>
+        <ion-label>{{ dataProvider.AssemblySeat }}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked color="nobles">Shattuck Locker #</ion-label>
+        <ion-label>{{ dataProvider.ShattuckNum }}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked color="nobles">Locker Combo</ion-label>
+        <ion-label>{{ dataProvider.ShattuckCombo }}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked color="nobles">MAC Locker #</ion-label>
+        <ion-label>{{ dataProvider.MACNum }}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked color="nobles">Locker Combo</ion-label>
+        <ion-label>{{ dataProvider.MACCombo }}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked color="nobles">MS Cubby #</ion-label>
+        <ion-label>{{ dataProvider.MSCubbyNum }}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked color="nobles">Cubby Combo</ion-label>
+        <ion-label>{{ dataProvider.MSCubbyCombo }}</ion-label>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'financial'">
+      <ion-item>
+        <ion-label stacked color="nobles">Bookstore Amount</ion-label>
+        <ion-label>{{ dataProvider.BookstoreAmount }}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked color="nobles">Bookstore Spent</ion-label>
+        <ion-label>{{ dataProvider.BookstoreSpent }}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked color="nobles">Athletic Store Amount</ion-label>
+        <ion-label>{{ dataProvider.AthleticStoreAmount }}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked color="nobles">Athletic Store Spent</ion-label>
+        <ion-label>{{ dataProvider.AthleticStoreSpent }}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked color="nobles">Snack Bar Amount</ion-label>
+        <ion-label>{{ dataProvider.SnackBarAmount }}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked color="nobles">Snack Bar Spent</ion-label>
+        <ion-label>{{ dataProvider.SnackBarSpent }}</ion-label>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'service'">
+      
+    </ion-list>
+
+  </div>
+</ion-content>

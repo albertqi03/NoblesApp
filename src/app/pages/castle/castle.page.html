@@ -1,0 +1,93 @@
+<ion-header>
+  <ion-toolbar color="nobles">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Castle</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <!--
+  <div class="times" padding>
+    <p>
+      <span class="left">
+        Breakfast:
+      </span>
+      <span class="right">
+        Monday - Friday
+      </span>
+      <br>
+      <span class="right">
+        7:00am - 7:45am
+      </span>
+      <br>
+    </p>
+
+    <p>
+      <span class="left">
+        Lunch:
+      </span>
+      <span class="right">
+        Monday - Friday
+      </span>
+      <br>
+      <span class="right">
+        11:00am - 1:30pm
+      </span>
+      <br>
+    </p>
+
+    <p>
+      <span class="left">
+        Dinner:
+      </span>
+      <span class="right">
+        Monday - Thursday
+      </span>
+      <br>
+      <span class="right">
+        5:15pm - 7:00pm
+      </span>
+    </p>
+  </div>
+-->
+
+  <ion-segment [(ngModel)]="dayName" color="nobles" (ionChange)="getFood(dayName)" padding>
+    <ion-segment-button value="monday">Mon</ion-segment-button>
+    <ion-segment-button value="tuesday">Tue</ion-segment-button>
+    <ion-segment-button value="wednesday">Wed</ion-segment-button>
+    <ion-segment-button value="thursday">Thu</ion-segment-button>
+    <ion-segment-button value="friday">Fri</ion-segment-button>
+  </ion-segment>
+
+  <ion-segment [(ngModel)]="mealType" color="nobles" (ionChange)="getFood(dayName)" class="segment-bar">
+    <ion-segment-button value="lunch">Lunch</ion-segment-button>
+    <ion-segment-button value="dinner">Dinner</ion-segment-button>
+  </ion-segment>
+
+  <div id="mealText" padding></div>
+
+  <ion-footer>
+    <ion-toolbar>
+      <span>
+        <b><i>Breakfast:</i></b> Monday - Friday, 7:00am - 7:45am
+        <br>
+      </span>
+      <span>
+        <b><i>Lunch:</i></b> Monday - Friday, 11:00am - 1:30pm
+        <br>
+      </span>
+      <span>
+        <b><i>Dinner:</i></b> Monday - Thursday, 5:15pm - 7:00pm
+        <br>
+      </span>
+
+      <ion-button expand="block" routerLink="/menu/tabs/castle/make-res" routerDirection="forward" color="nobles"
+        fill="outline">Make a Reservation</ion-button>
+
+    </ion-toolbar>
+  </ion-footer>
+
+</ion-content>

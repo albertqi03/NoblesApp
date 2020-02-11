@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar color="nobles">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>Directory List</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-item-group *ngFor="let arr of people">
+  <ion-item-divider color="light">{{ arr[0].children[0].innerHTML.substring(0, 1).toUpperCase() }}</ion-item-divider>
+    <ion-item lines="full" *ngFor="let p of arr" (click)="dirViewPerson(p)">
+      <ion-avatar item-start>
+        <img src="https://nobilis.nobles.edu/images_sitewide/photos/{{ p.id }}.jpeg">
+      </ion-avatar>
+      <span class="name">{{ p.children[0].innerHTML }}, {{ p.children[1].innerHTML }}</span>
+      <ion-note item-end slot="end">Class {{ 13 - p.children[6].innerHTML }}</ion-note>
+    </ion-item>
+  </ion-item-group>
+
+</ion-content>

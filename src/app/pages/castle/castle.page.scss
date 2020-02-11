@@ -1,0 +1,28 @@
+ion-content {
+    --overflow: hidden;
+}
+
+ion-segment-button {
+    min-width: 10%;
+}
+
+.segment-bar {
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+ion-button {
+    width: 50%;
+    height: 20px;
+    font-size: small;
+    margin-left: auto;
+    margin-right: auto;
+    --border-width: 1px;
+    --border-radius: 20px;
+}
+
+ion-footer {
+    font-size: small;
+    position: fixed;
+    bottom:0;
+}

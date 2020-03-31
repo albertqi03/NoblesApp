@@ -12,13 +12,14 @@ ion-segment-button {
 }
 
 ion-button {
-    width: 50%;
-    height: 20px;
-    font-size: small;
+    width: 70%;
+    height: 50px;
+    font-size: medium;
     margin-left: auto;
     margin-right: auto;
     --border-width: 1px;
     --border-radius: 20px;
+    padding-top: 8px;
 }
 
 ion-footer {

@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar color="nobles">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Athletics</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-segment [(ngModel)]="athleticsType" color="nobles" padding>
+    <ion-segment-button value="results">Results</ion-segment-button>
+    <ion-segment-button value="upcoming">Upcoming</ion-segment-button>
+  </ion-segment>
+
+  <div [ngSwitch]="athleticsType">
+    <div *ngSwitchCase="'results'">
+      <div *ngFor="let i of nums">
+        <ion-card>
+          <ion-card-header color="nobles" class="card-header">
+            Basketball Boys Varsity{{ dataProvider.eventSport[i] }}
+          </ion-card-header>
+          <ion-card-content>
+            <img src="../../assets/schools/nobles.png" alt="Logo" class="logo-left">
+            <img src="../../assets/schools/nobles.png" alt="Logo" class="logo-right">
+            <ion-card-title>30 - 31</ion-card-title>
+          </ion-card-content>
+          <ion-card-content>
+            Nobles
+          </ion-card-content>
+          <ion-footer>
+            Loss
+          </ion-footer>
+        </ion-card>
+      </div>
+    </div>
+
+    <div *ngSwitchCase="'upcoming'">
+
+      UPCOMING GAMES WILL GO HERE! :)
+
+    </div>
+  </div>
+
+</ion-content>

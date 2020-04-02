@@ -1,0 +1,36 @@
+ion-card {
+    margin-top: 0px;
+    margin-bottom: 16px;
+}
+
+ion-card-header {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left: 16px;
+}
+
+.card-header {
+    font-size: 18px;
+}
+
+ion-card-title {
+    font-weight: normal;
+    text-align: center;
+}
+
+.logo-left {
+    width: 20%;
+    height: 20%;
+    float: left;
+}
+
+.logo-right {
+    width: 20%;
+    height: 20%;
+    float: right;
+}
+
+ion-footer {
+    text-align: center;
+    padding-bottom: 12px;
+}

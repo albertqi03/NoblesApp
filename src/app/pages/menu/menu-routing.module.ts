@@ -9,6 +9,10 @@ const routes: Routes = [
     component: MenuPage,
     children: [
       {
+        path: 'calendar',
+        loadChildren: () => import('../calendar/calendar.module').then( m => m.CalendarPageModule)
+      },
+      {
         path: 'menu-first',
         loadChildren: () => import('../menu-first/menu-first.module').then( m => m.MenuFirstPageModule)
       },

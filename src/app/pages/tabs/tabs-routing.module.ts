@@ -21,8 +21,8 @@ const routes: Routes = [
         loadChildren: () => import('../castle/castle.module').then( m => m.CastlePageModule)
       },
       {
-        path: 'calendar',
-        loadChildren: () => import('../calendar/calendar.module').then( m => m.CalendarPageModule)
+        path: 'athletics',
+        loadChildren: () => import('../athletics/athletics.module').then( m => m.AthleticsPageModule)
       },
       {
         path: 'my-info',

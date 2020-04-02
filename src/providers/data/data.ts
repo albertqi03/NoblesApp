@@ -65,6 +65,23 @@ export class DataProvider {
   dirFilteredPeople = [];
   dirPerson: string;
 
+  // ATHLETIC VARS
+
+  winLoss: Array<string> = new Array;
+  opponents: Array<string> = new Array;
+  homeAway: Array<string> = new Array;
+
+  homeTeams: Array<string> = new Array;
+  homeScores: Array<string> = new Array;
+  awayTeams: Array<string> = new Array;
+  awayScores: Array<string> = new Array;
+
+  eventSport: Array<string> = new Array;
+  eventDate: Array<string> = new Array;
+  eventMonth: Array<string> = new Array;
+  eventDay: Array<string> = new Array;
+  eventYear: Array<string> = new Array;
+
   constructor(private http: HttpClient, private nav: NavController, private toastController: ToastController) {
     let currentDate = new Date();
     let weekdays = ["Monday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Monday"];
@@ -172,6 +189,56 @@ export class DataProvider {
         this.SnackBarSpent = '$' + this.SnackBarSpent;
       }
 
+      this.getAthleticResults();
+
+    }, (error) => {
+      console.log('Errors', error);
+    });
+  }
+
+  getAthleticResults() {
+    let url = "https://nobilis.nobles.edu/webservices/gameschedule.php?eventtypes=ContestResults";
+
+    this.http.get(url, { responseType: 'text' }).subscribe(output => {
+      let parser = new DOMParser();
+      let doc = parser.parseFromString(output, "text/xml");
+      let events = doc.getElementsByTagName("Event");
+
+      for (let i = 0; i < events.length; i++) {
+        let event = events[i];
+
+        let wl = event.children[0].innerHTML.substring(0, 1);
+        if (wl == 'W') {
+          this.winLoss[i] = 'Win';
+        } else if (wl == 'L') {
+          this.winLoss[i] = 'Loss';
+        } else {
+          this.winLoss[i] = 'Tie';
+        }
+
+        this.opponents[i] = event.children[4].innerHTML;
+        this.homeAway[i] = event.children[13].innerHTML;
+
+        let scoreArr = event.children[0].innerHTML.split("-");
+        let leftScore = typeof scoreArr[0] != "undefined" ? scoreArr[0].replace(/\D/g, '') : 'N/A';
+        let rightScore = typeof scoreArr[1] != "undefined" ? scoreArr[1].replace(/\D/g, '') : 'N/A';
+
+        let noblesScore = this.winLoss[i] == 'Win' ? leftScore : rightScore;
+        let oppScore = this.winLoss[i] == 'Win' ? rightScore : leftScore;
+
+        this.homeTeams[i] = this.homeAway[i] == 'Home' ? 'Nobles' : this.opponents[i];
+        this.awayTeams[i] = this.homeAway[i] == 'Home' ? this.opponents[i] : 'Nobles';
+
+        this.homeScores[i] = this.homeAway[i] == 'Home' ? noblesScore : oppScore;
+        this.awayScores[i] = this.homeAway[i] == 'Home' ? oppScore : noblesScore;
+
+        this.eventSport[i] = event.children[8].innerHTML;
+        this.eventDate[i] = event.children[1].innerHTML;
+        this.eventMonth[i] = event.children[10].innerHTML;
+        this.eventDay[i] = event.children[11].innerHTML;
+        this.eventYear[i] = event.children[12].innerHTML;
+      }
+
       this.getSchedule();
 
     }, (error) => {
@@ -204,7 +271,7 @@ export class DataProvider {
 
         let courseNum = 0;
         let courseNumMax = user.children.length;
-        
+
         for (courseNum; courseNum < courseNumMax; courseNum++) {
           courses[courseNum] = user.children[courseNum].innerHTML;
 

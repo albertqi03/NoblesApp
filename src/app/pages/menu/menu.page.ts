@@ -12,6 +12,10 @@ export class MenuPage implements OnInit {
 
   pages = [
     {
+      title: 'Calendar',
+      url: '/menu/calendar'
+    },
+    {
       title: 'First',
       url: '/menu/menu-first'
     },

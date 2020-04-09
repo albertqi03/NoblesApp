@@ -1,6 +1,25 @@
 ion-card {
     margin-top: 0px;
     margin-bottom: 16px;
+    padding-bottom: 2%;
+}
+
+ion-segment {
+    padding-top: 5%;
+    padding-bottom: 3%;
+}
+
+ion-segment-button {
+    width: 50%;
+}
+
+.school-away {
+    float: left;
+    clear: both;
+}
+
+.school-home {
+    float: right;
 }
 
 ion-card-header {
@@ -33,4 +52,6 @@ ion-card-title {
 ion-footer {
     text-align: center;
     padding-bottom: 12px;
+    clear: both;
+    border: none;
 }

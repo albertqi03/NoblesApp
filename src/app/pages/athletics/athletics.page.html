@@ -16,30 +16,56 @@
 
   <div [ngSwitch]="athleticsType">
     <div *ngSwitchCase="'results'">
+      <br>
       <div *ngFor="let i of nums">
         <ion-card>
           <ion-card-header color="nobles" class="card-header">
             Basketball Boys Varsity{{ dataProvider.eventSport[i] }}
           </ion-card-header>
+          <br>
           <ion-card-content>
             <img src="../../assets/schools/nobles.png" alt="Logo" class="logo-left">
             <img src="../../assets/schools/nobles.png" alt="Logo" class="logo-right">
             <ion-card-title>30 - 31</ion-card-title>
           </ion-card-content>
           <ion-card-content>
-            Nobles
+            <h2 class="school-away">Nobles</h2>
+            <h2 class="school-home">Belmont Hill</h2>
           </ion-card-content>
           <ion-footer>
             Loss
           </ion-footer>
         </ion-card>
+        <br>
       </div>
     </div>
 
     <div *ngSwitchCase="'upcoming'">
-
-      UPCOMING GAMES WILL GO HERE! :)
-
+      <br>
+      <div *ngFor="let i of nums">
+        <ion-card>
+          <ion-card-header color="nobles" class="card-header">
+            Basketball Boys Varsity{{ dataProvider.upEventSport[i] }}
+          </ion-card-header>
+          <br>
+          <ion-card-content>
+            <img src="../../assets/schools/nobles.png" alt="Logo" class="logo-left">
+            <img src="../../assets/schools/nobles.png" alt="Logo" class="logo-right">
+            <ion-card-title>@</ion-card-title>
+          </ion-card-content>
+          <ion-card-content>
+            <h2 class="school-away">Nobles</h2>
+            <h2 class="school-home">Belmont Hill</h2>
+          </ion-card-content>
+          <ion-footer>
+            04/08/2020, 5:30pm - 7:00pm
+            
+            10 Campus Drive
+            Dedhmam, MA 02026
+          </ion-footer>
+        </ion-card>
+        <br>
+      </div>
     </div>
   </div>
 

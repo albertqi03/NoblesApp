@@ -82,6 +82,25 @@ export class DataProvider {
   eventDay: Array<string> = new Array;
   eventYear: Array<string> = new Array;
 
+  // UPCOMING GAMES VARS
+
+  upOpponents: Array<string> = new Array;
+  upHomeAway: Array<string> = new Array;
+
+  upHomeTeams: Array<string> = new Array;
+  upAwayTeams: Array<string> = new Array;
+
+  upEventSport: Array<string> = new Array;
+  upEventDate: Array<string> = new Array;
+  upEventMonth: Array<string> = new Array;
+  upEventDay: Array<string> = new Array;
+  upEventYear: Array<string> = new Array;
+  upStartTime: Array<string> = new Array;
+  upEndTime: Array<string> = new Array;
+  upAddress: Array<string> = new Array;
+
+  upCompleted: Array<boolean> = new Array;
+
   constructor(private http: HttpClient, private nav: NavController, private toastController: ToastController) {
     let currentDate = new Date();
     let weekdays = ["Monday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Monday"];
@@ -237,6 +256,43 @@ export class DataProvider {
         this.eventMonth[i] = event.children[10].innerHTML;
         this.eventDay[i] = event.children[11].innerHTML;
         this.eventYear[i] = event.children[12].innerHTML;
+      }
+
+      this.getUpcomingGames();
+
+    }, (error) => {
+      console.log('Errors', error);
+    });
+  }
+
+  getUpcomingGames() {
+    let url = "https://nobilis.nobles.edu/webservices/gameschedule.php?eventtypes=AllGameSchedule";
+
+    this.http.get(url, { responseType: 'text' }).subscribe(output => {
+      let parser = new DOMParser();
+      let doc = parser.parseFromString(output, "text/xml");
+      let events = doc.getElementsByTagName("Event");
+
+      for (let i = 0; i < events.length; i++) {
+        let event = events[i];
+
+        this.upOpponents[i] = event.children[4].innerHTML;
+        this.upHomeAway[i] = event.children[13].innerHTML;
+
+        this.upHomeTeams[i] = this.upHomeAway[i] == 'Home' ? 'Nobles' : this.upOpponents[i];
+        this.upAwayTeams[i] = this.upHomeAway[i] == 'Home' ? this.upOpponents[i] : 'Nobles';
+
+        this.upEventSport[i] = event.children[8].innerHTML;
+        this.upEventDate[i] = event.children[1].innerHTML;
+        this.upEventMonth[i] = event.children[10].innerHTML;
+        this.upEventDay[i] = event.children[11].innerHTML;
+        this.upEventYear[i] = event.children[12].innerHTML;
+
+        this.upStartTime[i] = event.children[2].innerHTML;
+        this.upEndTime[i] = event.children[3].innerHTML;
+        this.upAddress[i] = this.upHomeAway[i] == 'Home' ? '10 Campus Drive\nDedham, MA 02026' : event.children[15].innerHTML;
+
+        this.upCompleted[i] = this.upEventSport[i].includes('(COMPLETE)') ? true : false;
       }
 
       this.getSchedule();

@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { MenuSecondPage } from './menu-second.page';
+import { SendFeedbackPage } from './send-feedback.page';
 
-describe('MenuSecondPage', () => {
-  let component: MenuSecondPage;
-  let fixture: ComponentFixture<MenuSecondPage>;
+describe('SendFeedbackPage', () => {
+  let component: SendFeedbackPage;
+  let fixture: ComponentFixture<SendFeedbackPage>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MenuSecondPage ],
+      declarations: [ SendFeedbackPage ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(MenuSecondPage);
+    fixture = TestBed.createComponent(SendFeedbackPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

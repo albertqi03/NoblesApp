@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar color="nobles">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>Settings</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item button (click)="goToNotifications()">
+      <ion-label>Notifications</ion-label>
+    </ion-item>
+
+    <ion-item button (click)="goToFeedback()">
+      <ion-label>Send Feedback</ion-label>
+    </ion-item>
+
+    <ion-item button (click)="goToAbout()">
+      <ion-label>About</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

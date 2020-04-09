@@ -16,12 +16,8 @@ export class MenuPage implements OnInit {
       url: '/menu/calendar'
     },
     {
-      title: 'First',
-      url: '/menu/menu-first'
-    },
-    {
-      title: 'Second',
-      url: '/menu/menu-second'
+      title: 'Settings',
+      url: '/menu/settings'
     }
   ];
 

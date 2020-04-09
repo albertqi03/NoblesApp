@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { MenuSecondPageRoutingModule } from './menu-second-routing.module';
+import { SendFeedbackPageRoutingModule } from './send-feedback-routing.module';
 
-import { MenuSecondPage } from './menu-second.page';
+import { SendFeedbackPage } from './send-feedback.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    MenuSecondPageRoutingModule
+    SendFeedbackPageRoutingModule
   ],
-  declarations: [MenuSecondPage]
+  declarations: [SendFeedbackPage]
 })
-export class MenuSecondPageModule {}
+export class SendFeedbackPageModule {}

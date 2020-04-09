@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar color="nobles">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>Send Feedback</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-input [(ngModel)]="feedbackName" type="text" placeholder="Name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input [(ngModel)]="feedbackEmail" type="text" placeholder="Email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input [(ngModel)]="feedbackSubject" type="text" placeholder="Subject"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Feedback Type</ion-label>
+      <ion-select [(ngModel)]="feedbackType">
+        <ion-select-option value="feature">Feature Request</ion-select-option>
+        <ion-select-option value="bug">Bug Report</ion-select-option>
+        <ion-select-option value="performance">Performance</ion-select-option>
+        <ion-select-option value="compatibility">Device Compatibility</ion-select-option>
+        <ion-select-option value="other">Other</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-input [(ngModel)]="feedbackDevice" type="text" placeholder="Device Model"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input [(ngModel)]="feedbackComments" type="text" placeholder="Comments"></ion-input>
+    </ion-item>
+    <ion-item button (click)="submitFeedback()">
+      <ion-label color="primary">Submit</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

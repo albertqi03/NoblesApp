@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { MenuFirstPageRoutingModule } from './menu-first-routing.module';
+import { NotificationsPageRoutingModule } from './notifications-routing.module';
 
-import { MenuFirstPage } from './menu-first.page';
+import { NotificationsPage } from './notifications.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    MenuFirstPageRoutingModule
+    NotificationsPageRoutingModule
   ],
-  declarations: [MenuFirstPage]
+  declarations: [NotificationsPage]
 })
-export class MenuFirstPageModule {}
+export class NotificationsPageModule {}

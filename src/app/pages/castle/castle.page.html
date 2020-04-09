@@ -9,50 +9,11 @@
 
 <ion-content>
 
-  <!--
-  <div class="times" padding>
-    <p>
-      <span class="left">
-        Breakfast:
-      </span>
-      <span class="right">
-        Monday - Friday
-      </span>
-      <br>
-      <span class="right">
-        7:00am - 7:45am
-      </span>
-      <br>
-    </p>
-
-    <p>
-      <span class="left">
-        Lunch:
-      </span>
-      <span class="right">
-        Monday - Friday
-      </span>
-      <br>
-      <span class="right">
-        11:00am - 1:30pm
-      </span>
-      <br>
-    </p>
-
-    <p>
-      <span class="left">
-        Dinner:
-      </span>
-      <span class="right">
-        Monday - Thursday
-      </span>
-      <br>
-      <span class="right">
-        5:15pm - 7:00pm
-      </span>
-    </p>
-  </div>
--->
+  <ion-header>
+    <ion-item button routerLink="/menu/tabs/castle/make-res" routerDirection="forward" lines="full">
+      <ion-label>Make a Reservation</ion-label>
+    </ion-item>
+  </ion-header>
 
   <ion-segment [(ngModel)]="dayName" color="nobles" (ionChange)="getFood(dayName)" padding>
     <ion-segment-button value="monday">Mon</ion-segment-button>
@@ -83,9 +44,6 @@
         <b><i>Dinner:</i></b> Monday - Thursday, 5:15pm - 7:00pm
         <br>
       </span>
-
-      <ion-button expand="block" routerLink="/menu/tabs/castle/make-res" routerDirection="forward" color="nobles"
-        fill="outline">Make a Reservation</ion-button>
 
     </ion-toolbar>
   </ion-footer>

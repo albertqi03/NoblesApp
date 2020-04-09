@@ -9,7 +9,7 @@
     <ion-content>
       <ion-list>
         <ion-menu-toggle auto-hide="false" *ngFor="let p of pages">
-          <ion-item [routerLink]="p.url" routerDirection="forward" [class.active-item]="selectedPath.startsWith(p.url)">
+          <ion-item [routerLink]="p.url" routerDirection="forward" [class.active-item]="selectedPath.startsWith(p.url)" lines="full">
             <ion-label>
               {{ p.title }}
             </ion-label>
@@ -21,7 +21,7 @@
           Logout
         </ion-item> -->
 
-        <ion-item tappable routerLink="/login" routerDirection="root">
+        <ion-item tappable routerLink="/login" routerDirection="root" lines="full">
           <ion-icon name="log-out" slot="start"></ion-icon>
           Logout
         </ion-item>

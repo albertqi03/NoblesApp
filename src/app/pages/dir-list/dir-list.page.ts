@@ -12,8 +12,11 @@ export class DirListPage implements OnInit {
   alphabet: Array<string>;
   people: Array<Array<string>>;
 
+  dirPressed: boolean;
+
   constructor(private dataProvider: DataProvider, private nav: NavController) {
     this.alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+    this.dirPressed = false;
 
     this.people = [];
     for (let i = 0; i < 26; i++) {
@@ -38,7 +41,14 @@ export class DirListPage implements OnInit {
   }
 
   dirViewPerson(p: string) {
+    if (this.dirPressed) {
+      return;
+    }
+    this.dirPressed = true;
+
     this.dataProvider.dirPerson = p;
     this.nav.navigateForward('/menu/tabs/directory/dir-list/view-person');
+
+    this.dirPressed = false;
   }
 }

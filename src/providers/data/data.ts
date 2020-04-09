@@ -101,27 +101,42 @@ export class DataProvider {
 
   upCompleted: Array<boolean> = new Array;
 
+  // OTHER VARS
+
+  loginPressed: boolean;
+  myToast: any;
+
   constructor(private http: HttpClient, private nav: NavController, private toastController: ToastController) {
     let currentDate = new Date();
     let weekdays = ["Monday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Monday"];
     this.dayName = weekdays[currentDate.getDay()];
+    this.loginPressed = false;
   }
 
   async toast() {
-    const toast = await this.toastController.create({
+    try {
+      this.myToast.dismiss();
+    } catch(e) {}
+
+    this.myToast = await this.toastController.create({
       message: 'Invalid PIN. Please try again.',
       duration: 500
     });
-    toast.present();
+    this.myToast.present();
+    this.loginPressed = false;
   }
 
   ifValid() {
+    if (this.loginPressed) {
+      return;
+    }
+    this.loginPressed = true;
+
     const urlPrivate = "https://nobilis.nobles.edu/iosnoblesappweb/aboutme.php?iosPIN=" + this.userPin;
     this.http.get(urlPrivate, { responseType: 'text' }).subscribe(output => {
       output => output.text();
       var array = output.split("#");
       if (array[0] === 'NoPIN' || array[0] === 'InvalidPIN') {
-        console.log('Invalid PIN!');
         this.toast();
         return;
       } else {
@@ -362,6 +377,7 @@ export class DataProvider {
       }
 
       this.nav.navigateRoot('/menu/tabs/schedule');
+      this.loginPressed = false;
 
     }, (error) => {
       console.log('Errors', error);

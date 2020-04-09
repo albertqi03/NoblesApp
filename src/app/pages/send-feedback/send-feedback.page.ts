@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController, ToastController } from '@ionic/angular';
-import { ExecFileOptionsWithStringEncoding } from 'child_process';
 
 @Component({
   selector: 'app-send-feedback',
@@ -16,6 +15,9 @@ export class SendFeedbackPage implements OnInit {
   feedbackDevice: string;
   feedbackComments: string;
 
+  failureToast: any;
+  successToast: any;
+
   constructor(private nav: NavController, private toastController: ToastController) {
     this.feedbackName = '';
     this.feedbackEmail = '';
@@ -29,19 +31,27 @@ export class SendFeedbackPage implements OnInit {
   }
 
   async toastFailure() {
-    const toast = await this.toastController.create({
+    try {
+      this.failureToast.dismiss();
+    } catch(e) {}
+
+    this.failureToast = await this.toastController.create({
       message: 'Please fill in all inputs.',
       duration: 1500
     });
-    toast.present();
+    this.failureToast.present();
   }
 
   async toastSuccess() {
-    const toast = await this.toastController.create({
+    try {
+      this.successToast.dismiss();
+    } catch(e) {}
+
+    this.successToast = await this.toastController.create({
       message: 'Thank you for your feedback!',
       duration: 2000
     });
-    toast.present();
+    this.successToast.present();
   }
 
   submitFeedback() {

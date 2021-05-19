@@ -1,0 +1,93 @@
+<ion-header>
+  <ion-toolbar [color]="dataProvider.darkMode ? 'dark' : 'nobles'">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Castle</ion-title>
+    <ion-buttons slot="end" class="dark-mode-icon">
+      <ion-icon (click)="dataProvider.switchDarkMode()" [name]="dataProvider.darkMode ? 'moon' : 'moon-outline'">
+      </ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-header [ngClass]="dataProvider.darkMode ? 'dark-header' : 'light-header'">
+  <ion-item button routerLink="/menu/tabs/castle/my-res" routerDirection="forward" lines="full">
+    <ion-label [color]="dataProvider.darkMode ? 'white' : 'black'">My Reservations</ion-label>
+  </ion-item>
+</ion-header>
+
+<ion-content [ngClass]="dataProvider.darkMode ? 'dark-content' : 'light-content'">
+  <ion-refresher [ngClass]="dataProvider.darkMode ? 'dark-ref-bg' : 'light-ref-bg'" slot="fixed"
+    (ionRefresh)="doRefresh($event)">
+    <br><br>
+    <ion-refresher-content [ngClass]="dataProvider.darkMode ? 'dark-ref-bg' : 'light-ref-bg'"
+      pullingIcon="arrow-dropdown" refreshingSpinner="crescent">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <br>
+  <ion-segment [(ngModel)]="dataProvider.castleDayName" [color]="dataProvider.darkMode ? 'darknobles' : 'nobles'" class="day" mode="ios">
+    <ion-segment-button value="monday">
+      <ion-label [color]="dataProvider.darkMode ? 'noblesDark' : 'black'">Mon</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="tuesday">
+      <ion-label [color]="dataProvider.darkMode ? 'noblesDark' : 'black'">Tue</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="wednesday">
+      <ion-label [color]="dataProvider.darkMode ? 'noblesDark' : 'black'">Wed</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="thursday">
+      <ion-label [color]="dataProvider.darkMode ? 'noblesDark' : 'black'">Thu</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="friday">
+      <ion-label [color]="dataProvider.darkMode ? 'noblesDark' : 'black'">Fri</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <br>
+
+  <ion-segment [(ngModel)]="dataProvider.castleMealType" [color]="dataProvider.darkMode ? 'darknobles' : 'nobles'" class="segment-bar" mode="ios">
+    <ion-segment-button value="lunch">
+      <ion-label [color]="dataProvider.darkMode ? 'noblesDark' : 'black'">Lunch</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="dinner">
+      <ion-label [color]="dataProvider.darkMode ? 'noblesDark' : 'black'">Dinner</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <br>
+
+  <div [innerHtml]="dataProvider.castleMenu[0]" *ngIf="dataProvider.castleDayName === 'monday' && dataProvider.castleMealType === 'lunch'" [ngClass]="dataProvider.darkMode ? 'whiteMenuText' : 'blackMenuText'"></div>
+  <div [innerHtml]="dataProvider.castleMenu[1]" *ngIf="dataProvider.castleDayName === 'monday' && dataProvider.castleMealType === 'dinner'" [ngClass]="dataProvider.darkMode ? 'whiteMenuText' : 'blackMenuText'"></div>
+  <div [innerHtml]="dataProvider.castleMenu[2]" *ngIf="dataProvider.castleDayName === 'tuesday' && dataProvider.castleMealType === 'lunch'" [ngClass]="dataProvider.darkMode ? 'whiteMenuText' : 'blackMenuText'"></div>
+  <div [innerHtml]="dataProvider.castleMenu[3]" *ngIf="dataProvider.castleDayName === 'tuesday' && dataProvider.castleMealType === 'dinner'" [ngClass]="dataProvider.darkMode ? 'whiteMenuText' : 'blackMenuText'"></div>
+  <div [innerHtml]="dataProvider.castleMenu[4]" *ngIf="dataProvider.castleDayName === 'wednesday' && dataProvider.castleMealType === 'lunch'" [ngClass]="dataProvider.darkMode ? 'whiteMenuText' : 'blackMenuText'"></div>
+  <div [innerHtml]="dataProvider.castleMenu[5]" *ngIf="dataProvider.castleDayName === 'wednesday' && dataProvider.castleMealType === 'dinner'" [ngClass]="dataProvider.darkMode ? 'whiteMenuText' : 'blackMenuText'"></div>
+  <div [innerHtml]="dataProvider.castleMenu[6]" *ngIf="dataProvider.castleDayName === 'thursday' && dataProvider.castleMealType === 'lunch'" [ngClass]="dataProvider.darkMode ? 'whiteMenuText' : 'blackMenuText'"></div>
+  <div [innerHtml]="dataProvider.castleMenu[7]" *ngIf="dataProvider.castleDayName === 'thursday' && dataProvider.castleMealType === 'dinner'" [ngClass]="dataProvider.darkMode ? 'whiteMenuText' : 'blackMenuText'"></div>
+  <div [innerHtml]="dataProvider.castleMenu[8]" *ngIf="dataProvider.castleDayName === 'friday' && dataProvider.castleMealType === 'lunch'" [ngClass]="dataProvider.darkMode ? 'whiteMenuText' : 'blackMenuText'"></div>
+  <div [innerHtml]="dataProvider.castleMenu[9]" *ngIf="dataProvider.castleDayName === 'friday' && dataProvider.castleMealType === 'dinner'" [ngClass]="dataProvider.darkMode ? 'whiteMenuText' : 'blackMenuText'"></div>
+
+</ion-content>
+
+<ion-footer [ngClass]="dataProvider.darkMode ? 'dark-footer' : 'light-footer'">
+  <span>
+    <ion-label [color]="dataProvider.darkMode ? 'white' : 'black'">
+      <b>Breakfast:</b> Monday - Friday, 7:00am - 7:45am
+    </ion-label>
+    <br>
+  </span>
+  <span>
+    <ion-label [color]="dataProvider.darkMode ? 'white' : 'black'">
+      <b>Lunch:</b> Monday - Friday, 11:00am - 1:30pm
+    </ion-label>
+    <br>
+  </span>
+  <span>
+    <ion-label [color]="dataProvider.darkMode ? 'white' : 'black'">
+      <b>Dinner:</b> Monday - Thursday, 5:15pm - 7:00pm
+    </ion-label>
+    <br>
+  </span>
+</ion-footer>

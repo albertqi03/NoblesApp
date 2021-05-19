@@ -1,0 +1,71 @@
+<ion-header>
+  <ion-toolbar [color]="dataProvider.darkMode ? 'dark' : 'nobles'">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>Themes</ion-title>
+    <ion-buttons slot="end" class="dark-mode-icon">
+      <ion-icon (click)="dataProvider.switchDarkMode()" [name]="dataProvider.darkMode ? 'moon' : 'moon-outline'"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [ngClass]="dataProvider.darkMode ? 'dark-content' : 'light-content'">
+  <ion-item lines="full">
+    <ion-label [color]="dataProvider.darkMode ? 'white' : 'black'">Show images in directory list</ion-label>
+    <ion-toggle [(ngModel)]="dataProvider.showDirImage"></ion-toggle>
+  </ion-item>
+
+  <br>
+
+  <ion-list>
+    <ion-header class="radio-select">
+      <ion-label [color]="dataProvider.darkMode ? 'white' : 'black'" class="ion-padding"><b>Theme</b></ion-label>
+    </ion-header>
+    <br>
+    <ion-radio-group [(ngModel)]="dataProvider.theme">
+
+      <ion-item>
+        <ion-label [color]="dataProvider.darkMode ? 'white' : 'black'">Default</ion-label>
+        <ion-radio slot="end" value="default" color="nobles"></ion-radio>
+      </ion-item>
+
+      <ion-item (click)="loadThemes()">
+        <ion-label [color]="dataProvider.darkMode ? 'white' : 'black'">Dark Mode</ion-label>
+        <ion-radio slot="end" value="dark-mode" color="nobles"></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label [color]="dataProvider.darkMode ? 'white' : 'black'">Vaporwave</ion-label>
+        <ion-radio slot="end" value="vaporwave" color="nobles"></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label [color]="dataProvider.darkMode ? 'white' : 'black'">Ocean</ion-label>
+        <ion-radio slot="end" value="ocean" color="nobles"></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label [color]="dataProvider.darkMode ? 'white' : 'black'">Helios</ion-label>
+        <ion-radio slot="end" value="helios" color="nobles"></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label [color]="dataProvider.darkMode ? 'white' : 'black'">Jam</ion-label>
+        <ion-radio slot="end" value="jam" color="nobles"></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label [color]="dataProvider.darkMode ? 'white' : 'black'">Crayon</ion-label>
+        <ion-radio slot="end" value="crayon" color="nobles"></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label [color]="dataProvider.darkMode ? 'white' : 'black'">Business</ion-label>
+        <ion-radio slot="end" value="business" color="nobles"></ion-radio>
+      </ion-item>
+
+    </ion-radio-group>
+  </ion-list>
+
+</ion-content>

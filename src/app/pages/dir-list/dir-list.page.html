@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar [color]="dataProvider.darkMode ? 'dark' : 'nobles'">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>Directory List</ion-title>
+    <ion-buttons slot="end" class="dark-mode-icon">
+      <ion-icon (click)="dataProvider.switchDarkMode()" [name]="dataProvider.darkMode ? 'moon' : 'moon-outline'"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [ngClass]="dataProvider.darkMode ? 'dark-content' : 'light-content'">
+
+  <ion-item-group *ngFor="let arr of dataProvider.dirListPeople">
+
+    <ion-item-divider color="light">{{ arr[0].children[0].innerHTML.substring(0, 1).toUpperCase() }}</ion-item-divider>
+    <ion-item lines="full" *ngFor="let p of arr" (click)="dirViewPerson(p)">
+      <ion-avatar *ngIf="dataProvider.showDirImage" item-start>
+        <img src="https://nobilis.nobles.edu/images_sitewide/photos/{{ p.id }}.jpeg">
+      </ion-avatar>
+      <span [ngClass]="dataProvider.showDirImage ? 'name-img' : 'name-no-img'">{{ p.children[0].innerHTML }}, {{ p.children[1].innerHTML }}</span>
+      <ion-icon name="volume-high-outline" (click)="playAudio(p)"></ion-icon>
+      <ion-note item-end slot="end">{{ dataProvider.dirListGradeMap.get(p.children[6].innerHTML) }}</ion-note>
+    </ion-item>
+
+  </ion-item-group>
+
+  <ion-infinite-scroll threshold="20%" (ionInfinite)="loadMoreDirectory($event)" [disabled]="!dataProvider.dirScroll">
+    <ion-infinite-scroll-content loadingSpinner="circles">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+</ion-content>

@@ -1,0 +1,52 @@
+.dark-header {
+    --ion-background-color: #242424;
+}
+
+.light-header {
+    --ion-background-color: #ffffff;
+}
+
+.blue {
+    color: #1788da;
+}
+
+ion-segment {
+    width: 82%;
+    margin-left: 9%;
+    margin-right: 9%;
+}
+
+ion-segment-button {
+    width: 50%;
+}
+
+.center {
+    text-align: center;
+}
+
+ion-spinner {
+    margin: 0;
+    top: 93%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.fields {
+    margin-left: 16px;
+    margin-right: 36px;
+}
+
+.reset {
+    width: 50%;
+    --border-width: 1px;
+}
+
+.radio-select {
+    padding-bottom: 10px;
+}
+
+.dark-mode-icon {
+    font-size: 24px;
+    padding-right: 2.5%;
+}

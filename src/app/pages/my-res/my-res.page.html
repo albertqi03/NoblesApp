@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar [color]="dataProvider.darkMode ? 'dark' : 'nobles'">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>My Reservations</ion-title>
+    <ion-buttons slot="end" class="dark-mode-icon">
+      <ion-icon (click)="dataProvider.switchDarkMode()" [name]="dataProvider.darkMode ? 'moon' : 'moon-outline'">
+      </ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-header [ngClass]="dataProvider.darkMode ? 'dark-header' : 'light-header'">
+  <ion-item button routerLink="/menu/tabs/castle/my-res/make-res" routerDirection="forward" lines="full">
+    <ion-label [color]="dataProvider.darkMode ? 'white' : 'black'">Make a Reservation</ion-label>
+  </ion-item>
+</ion-header>
+
+<ion-content [ngClass]="dataProvider.darkMode ? 'dark-content' : 'light-content'">
+
+  <div *ngIf="loading">
+    <ion-item lines="none">
+      <ion-label [color]="dataProvider.darkMode ? 'white' : 'black'">
+        <div>Loading...</div>
+      </ion-label>
+    </ion-item>
+  </div>
+
+  <div *ngIf="noReservations">
+    <ion-item lines="full">
+      <ion-label [color]="dataProvider.darkMode ? 'white' : 'black'">
+        <div>No reservations</div>
+      </ion-label>
+    </ion-item>
+  </div>
+
+  <div *ngFor="let i of nums">
+    <ion-item lines="full">
+      <ion-label [color]="dataProvider.darkMode ? 'white' : 'black'">
+        <div>{{ daysOfTheWeek[i] }}, {{ dates[i] }}</div>
+        <div>{{ mealTypes[i] }}</div>
+      </ion-label>
+      <ion-buttons slot="end" class="trash-icon">
+        <ion-icon (click)="deleteRes(i)" name="trash-outline"></ion-icon>
+      </ion-buttons>
+    </ion-item>
+  </div>
+
+</ion-content>

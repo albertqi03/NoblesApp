@@ -1,0 +1,46 @@
+ion-segment {
+    margin-left: 3%;
+    margin-right: 3%;
+    width: 94%;
+}
+
+ion-segment-button {
+    min-width: 10%;
+    width: 20%;
+}
+
+.times {
+    font-size: small;
+    padding-left: 16px;
+}
+
+ion-item {
+    margin-top: 3px;
+    --min-height: 73px;
+}
+
+.courseName {
+    font-size: larger;
+    margin-bottom: 3px;
+    color: black;
+}
+
+.infoBelow {
+    font-size: small;
+    color: black;
+}
+
+.dark-mode-icon {
+    font-size: 24px;
+    padding-right: 2.5%;
+}
+
+.dark-ref-bg {
+    background-color: #1E1E1E;
+    padding-bottom: 100%;
+}
+
+.light-ref-bg {
+    background-color: #F5F5F5;
+    padding-bottom: 100%;
+}

@@ -1,0 +1,182 @@
+<ion-header>
+  <ion-toolbar [color]="dataProvider.darkMode ? 'dark' : 'nobles'">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Athletics</ion-title>
+    <ion-buttons slot="end" class="dark-mode-icon">
+      <ion-icon (click)="dataProvider.switchDarkMode()" [name]="dataProvider.darkMode ? 'moon' : 'moon-outline'">
+      </ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-item [color]="dataProvider.darkMode ? 'darkcard' : 'white'" lines="full">
+  <ion-label>Select team</ion-label>
+  <ion-select mode="ios">
+    <ion-select-option value="all">All</ion-select-option>
+    <ion-select-option value="">Alpine Skiing JV</ion-select-option>
+    <ion-select-option value="">Alpine Skiing Varsity</ion-select-option>
+    <ion-select-option value="">Baseball Boys Varsity</ion-select-option>
+    <ion-select-option value="">Baseball Boys JV</ion-select-option>
+    <ion-select-option value="">Baseball Boys Middle School</ion-select-option>
+    <ion-select-option value="">Basketball Boys Varsity</ion-select-option>
+    <ion-select-option value="">Basketball Boys JV</ion-select-option>
+    <ion-select-option value="">Basketball Boys Middle School</ion-select-option>
+    <ion-select-option value="">Basketball Girls Varsity</ion-select-option>
+    <ion-select-option value="">Basketball Girls JV</ion-select-option>
+    <ion-select-option value="">Basketball Girls 3rd</ion-select-option>
+    <ion-select-option value="">Basketball Girls Middle School</ion-select-option>
+    <ion-select-option value="">Crew Boys Varsity</ion-select-option>
+    <ion-select-option value="">Crew Boys JV</ion-select-option>
+    <ion-select-option value="">Crew Girls Varsity</ion-select-option>
+    <ion-select-option value="">Crew Girls JV</ion-select-option>
+    <ion-select-option value="">Cross Country Boys Varsity</ion-select-option>
+    <ion-select-option value="">Cross Country Boys JV</ion-select-option>
+    <ion-select-option value="">Cross Country Girls Varsity</ion-select-option>
+    <ion-select-option value="">Cross Country Girls JV</ion-select-option>
+    <ion-select-option value="">Field Hockey Girls Varsity</ion-select-option>
+    <ion-select-option value="">Field Hockey Girls JV</ion-select-option>
+    <ion-select-option value="">Field Hockey Girls Middle School</ion-select-option>
+    <ion-select-option value="">Football Boys Varsity</ion-select-option>
+    <ion-select-option value="">Football Boys Junior</ion-select-option>
+    <ion-select-option value="">Golf Varsity</ion-select-option>
+    <ion-select-option value="">Hockey Boys Varsity</ion-select-option>
+    <ion-select-option value="">Hockey Boys JV</ion-select-option>
+    <ion-select-option value="">Hockey Girls Varsity</ion-select-option>
+    <ion-select-option value="">Hockey Girls JV</ion-select-option>
+    <ion-select-option value="">Hockey Middle School</ion-select-option>
+    <ion-select-option value="">Lacrosse Boys Varsity</ion-select-option>
+    <ion-select-option value="">Lacrosse Boys JV</ion-select-option>
+    <ion-select-option value="">Lacrosse Boys Middle School</ion-select-option>
+    <ion-select-option value="">Lacrosse Girls Varsity</ion-select-option>
+    <ion-select-option value="">Lacrosse Girls JV</ion-select-option>
+    <ion-select-option value="">Lacrosse Girls Middle School</ion-select-option>
+    <ion-select-option value="">Soccer Boys Varsity</ion-select-option>
+    <ion-select-option value="">Soccer Boys JV</ion-select-option>
+    <ion-select-option value="">Soccer Boys 3rd</ion-select-option>
+    <ion-select-option value="">Soccer Boys Middle School</ion-select-option>
+    <ion-select-option value="">Soccer Girls Varsity</ion-select-option>
+    <ion-select-option value="">Soccer Girls JV</ion-select-option>
+    <ion-select-option value="">Soccer Girls Middle School</ion-select-option>
+    <ion-select-option value="">Softball Girls Varsity</ion-select-option>
+    <ion-select-option value="">Softball Girls JV</ion-select-option>
+    <ion-select-option value="">Squash Boys Varsity</ion-select-option>
+    <ion-select-option value="">Squash Boys JV</ion-select-option>
+    <ion-select-option value="">Squash Girls Varsity</ion-select-option>
+    <ion-select-option value="">Squash Girls JV</ion-select-option>
+    <ion-select-option value="">Squash Middle School</ion-select-option>
+    <ion-select-option value="">Tennis Boys Varsity</ion-select-option>
+    <ion-select-option value="">Tennis Boys JV</ion-select-option>
+    <ion-select-option value="">Tennis Girls Varsity</ion-select-option>
+    <ion-select-option value="">Tennis Girls JV</ion-select-option>
+    <ion-select-option value="">Tennis Middle School</ion-select-option>
+    <ion-select-option value="">Track and Field</ion-select-option>
+    <ion-select-option value="">Ultimate Frisbee</ion-select-option>
+    <ion-select-option value="">Volleyball Girls Varsity</ion-select-option>
+    <ion-select-option value="">Volleyball Girls JV</ion-select-option>
+    <ion-select-option value="">Wrestling Varsity</ion-select-option>
+    <ion-select-option value="">Wrestling JV</ion-select-option>
+    <ion-select-option value="">Wrestling Middle School</ion-select-option>
+    <ion-select-option value="">Volleyball Girls Varsity</ion-select-option>
+    <ion-select-option value="">Varsity Girls JV</ion-select-option>
+
+  </ion-select>
+</ion-item>
+
+<ion-content [ngClass]="dataProvider.darkMode ? 'dark-content' : 'light-content'">
+
+  <ion-refresher [ngClass]="dataProvider.darkMode ? 'dark-ref-bg' : 'light-ref-bg'" slot="fixed"
+    (ionRefresh)="doRefresh($event)">
+    <br><br>
+    <ion-refresher-content [ngClass]="dataProvider.darkMode ? 'dark-ref-bg' : 'light-ref-bg'"
+      pullingIcon="arrow-dropdown" refreshingSpinner="crescent">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <br>
+
+  <ion-segment [(ngModel)]="athleticsType" [color]="dataProvider.darkMode ? 'darknobles' : 'nobles'" mode="ios">
+    <ion-segment-button value="results">
+      <ion-label [color]="dataProvider.darkMode ? 'darknobles' : 'black'">Results</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="upcoming">
+      <ion-label [color]="dataProvider.darkMode ? 'darknobles' : 'black'">Upcoming</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <div [ngSwitch]="athleticsType">
+    <div *ngSwitchCase="'results'">
+      <br>
+      <div *ngFor="let i of dataProvider.athIndex">
+        <ion-card [color]="dataProvider.darkMode ? 'darkcard' : 'white'">
+          <ion-card-header>
+            {{ dataProvider.eventSport[i] }}
+          </ion-card-header>
+
+          <div class="logos">
+            <img src="{{ this.dataProvider.awayImage[i] }}" class="logo">
+            <br>
+            <img src="{{ this.dataProvider.homeImage[i] }}" class="logo-second">
+          </div>
+          <div class="school-names">
+            <h5 [ngClass]="dataProvider.darkMode ? 'dark-h5' : 'light-h5'">{{ dataProvider.awayTeams[i] }}</h5>
+            <h5>{{ dataProvider.homeTeams[i] }}</h5>
+          </div>
+          <div class="date">
+            <h5 class="info">{{ dataProvider.eventMonth[i] }}/{{ dataProvider.eventDay[i] }}</h5>
+            <h5 class="info">{{ dataProvider.winLoss[i] }}</h5>
+          </div>
+          <div class="scores">
+            <h5 [ngClass]="dataProvider.awayScores[i] > dataProvider.homeScores[i] ? 'bold' : 'info'">
+              {{ dataProvider.awayScores[i] }}</h5>
+            <h5 [ngClass]="dataProvider.homeScores[i] > dataProvider.awayScores[i] ? 'bold' : 'info'">
+              {{ dataProvider.homeScores[i] }}</h5>
+          </div>
+        </ion-card>
+      </div>
+
+      <ion-infinite-scroll threshold="20%" (ionInfinite)="loadMoreAthletic($event)"
+        [disabled]="!dataProvider.athScroll">
+        <ion-infinite-scroll-content loadingSpinner="circles">
+        </ion-infinite-scroll-content>
+      </ion-infinite-scroll>
+
+    </div>
+
+    <div *ngSwitchCase="'upcoming'">
+      <br>
+      <div *ngFor="let i of dataProvider.upIndex">
+        <ion-card [color]="dataProvider.darkMode ? 'darkcard' : 'white'">
+          <ion-card-header>
+            {{ dataProvider.upEventSport[i] }}
+          </ion-card-header>
+
+          <div class="logos">
+            <img src="{{ this.dataProvider.upAwayImage[i] }}" class="logo">
+            <br>
+            <img src="{{ this.dataProvider.upHomeImage[i] }}" class="logo">
+          </div>
+          <div class="school-names">
+            <h5>{{ dataProvider.upAwayTeams[i] }}</h5>
+            <h5>{{ dataProvider.upHomeTeams[i] }}</h5>
+          </div>
+          <div class="upcoming-date">
+            <h5 class="info">{{ dataProvider.upEventMonth[i] }}/{{ dataProvider.upEventDay[i] }}</h5>
+            <h5 class="info">{{ dataProvider.upStartTime[i] }}</h5>
+          </div>
+          <ion-footer mode="ios" no-border>
+            {{ dataProvider.upAddress[i] }}
+          </ion-footer>
+        </ion-card>
+      </div>
+
+      <ion-infinite-scroll threshold="20%" (ionInfinite)="loadMoreUpcoming($event)" [disabled]="!dataProvider.upScroll">
+        <ion-infinite-scroll-content loadingSpinner="circles">
+        </ion-infinite-scroll-content>
+      </ion-infinite-scroll>
+
+    </div>
+  </div>
+
+</ion-content>

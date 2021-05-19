@@ -1,0 +1,14 @@
+<ion-content class="background-img">
+  <img src="../../assets/logo.png" alt="Logo">
+  <div class="center">
+    <ion-card color="white">
+      <ion-input clearOnEdit="false" placeholder="Input PIN" inputmode="text" type="password" [(ngModel)]="pin">
+      </ion-input>
+      <br>
+      <ion-button expand="block" color="nobles" (click)="signIn()">Log in</ion-button>
+      
+      <br *ngIf="dataProvider.showLoginSpinner"><br *ngIf="dataProvider.showLoginSpinner">
+      <ion-spinner *ngIf="dataProvider.showLoginSpinner" name="crescent"></ion-spinner>
+    </ion-card>
+  </div>
+</ion-content>

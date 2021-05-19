@@ -1,0 +1,90 @@
+ion-header {
+    padding-bottom: 10px;
+}
+
+ion-card-header {
+    height: 28px;
+    padding-left: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: left;
+    font-size: 14px;
+    color: black;
+    background-color: rgb(218, 218, 218);
+    padding-bottom: 2%;
+}
+
+ion-card {
+    width: 100%;
+    margin: auto;
+    border-radius: 0px;
+}
+
+ion-card-content {
+    color: black;
+}
+
+h5 {
+    font-size: 12px;
+    padding-right: 4px;
+}
+
+.start-time {
+    color: black;
+    padding-bottom: 5px;
+}
+
+.event-name {
+    font-size: 16px;
+    padding-top: 1px;
+    padding-left: 12px;
+    width: 75%;
+    float: left;
+    vertical-align: center;
+}
+
+h4 {
+    font-size: 16px;
+    color: black;
+}
+
+.practice-info {
+    padding-top: 6px;
+    padding-right: 6px;
+    margin-left: none;
+    text-align: center;
+    width: 22%;
+    float: left;
+    vertical-align: center;
+    border-right-style: solid;
+    border-right-width: 2px;
+    border-right-color: rgb(99, 99, 231);
+}
+
+.game-info {
+    padding-top: 6px;
+    padding-right: 6px;
+    margin-left: none;
+    text-align: center;
+    width: 22%;
+    float: left;
+    vertical-align: center;
+    border-right-style: solid;
+    border-right-width: 2px;
+    border-right-color: #d88383;
+}
+
+.dark-mode-icon {
+    font-size: 24px;
+    padding-right: 2.5%;
+}
+
+.dark-ref-bg {
+    background-color: #1E1E1E;
+    padding-bottom: 100%;
+}
+
+.light-ref-bg {
+    background-color: #F5F5F5;
+    padding-bottom: 100%;
+}

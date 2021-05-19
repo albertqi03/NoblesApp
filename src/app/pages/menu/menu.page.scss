@@ -1,0 +1,42 @@
+.center {
+    margin-left: 88%;
+}
+
+.center-name {
+    margin-left: 26%;
+}
+
+.center-class {
+    margin-left: 30%;
+}
+
+.name {
+    text-align: center;
+}
+
+.active-item {
+    border-left: 8px solid var(--ion-color-nobles);
+}
+
+ion-content {
+    --overflow: hidden;
+}
+
+ion-avatar {
+    height: 110px;
+    width: 110px;
+}
+
+.dark-mode-icon {
+    font-size: 24px;
+    padding-right: 2.5%;
+}
+
+.list-item {
+    border-top: 1px solid #D6D6D6;
+}
+
+.logout {
+    border-top: 1px solid #D6D6D6;
+    border-bottom: 1px solid #D6D6D6;
+}

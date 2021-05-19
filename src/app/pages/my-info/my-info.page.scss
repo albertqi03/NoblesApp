@@ -1,0 +1,53 @@
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+}
+
+img {
+    border-radius: 10px;
+}
+
+ion-list {
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+ion-segment {
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 90%;
+}
+
+ion-segment-button {
+    min-width: 10%;
+    width: 33%;
+}
+
+.darkSegment {
+    // color: var(--ion-color-darknobles);
+}
+
+.lightSegment {
+    // color: var(--ion-color-nobles);
+}
+
+.darkText {
+    color: #ffffff;
+}
+
+.dark-mode-icon {
+    font-size: 24px;
+    padding-right: 2.5%;
+}
+
+.dark-ref-bg {
+    background-color: #1E1E1E;
+    padding-bottom: 100%;
+}
+
+.light-ref-bg {
+    background-color: #F5F5F5;
+    padding-bottom: 100%;
+}

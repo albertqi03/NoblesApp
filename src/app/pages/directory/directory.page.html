@@ -1,0 +1,87 @@
+<ion-header>
+  <ion-toolbar [color]="dataProvider.darkMode ? 'dark' : 'nobles'">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Directory</ion-title>
+    <ion-buttons slot="end" class="dark-mode-icon">
+      <ion-icon (click)="dataProvider.switchDarkMode()" [name]="dataProvider.darkMode ? 'moon' : 'moon-outline'">
+      </ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [ngClass]="dataProvider.darkMode ? 'dark-content' : 'light-content'">
+
+  <ion-item [ngClass]="dataProvider.darkMode ? 'dark-header' : 'light-header'" button detail='false'
+    (click)="getDirectoryData()" lines="full">
+    <ion-label [color]="dataProvider.darkMode ? 'white' : 'black'">Search</ion-label>
+    <ion-icon class="blue" name="search"></ion-icon>
+  </ion-item>
+
+  <br>
+
+  <ion-list ion-class="padding" class="fields">
+    <ion-item>
+      <ion-input [(ngModel)]="dirFirstName" type="text" placeholder="First Name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input [(ngModel)]="dirLastName" type="text" placeholder="Last Name"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <br>
+
+  <ion-segment [(ngModel)]="dirPersonType" mode="ios">
+    <ion-segment-button value="Student">
+      <ion-label [color]="dataProvider.darkMode ? 'noblesDark' : 'black'">Student</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="Faculty">
+      <ion-label [color]="dataProvider.darkMode ? 'noblesDark' : 'black'">Faculty</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <br>
+
+  <ion-segment [(ngModel)]="dirGender" mode="ios">
+    <ion-segment-button value="Any">
+      <ion-label [color]="dataProvider.darkMode ? 'noblesDark' : 'black'">Any</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="Male">
+      <ion-label [color]="dataProvider.darkMode ? 'noblesDark' : 'black'">Male</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="Female">
+      <ion-label [color]="dataProvider.darkMode ? 'noblesDark' : 'black'">Female</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <br>
+
+  <ion-item class="fields">
+    <ion-label>Class</ion-label>
+    <ion-select [(ngModel)]="dirGrade" okText="Okay" cancelText="Dismiss">
+      <ion-select-option value="Any">                Any</ion-select-option>
+      <ion-select-option value="12">  I</ion-select-option>
+      <ion-select-option value="11">  II</ion-select-option>
+      <ion-select-option value="10">  III</ion-select-option>
+      <ion-select-option value="9">  IV</ion-select-option>
+      <ion-select-option value="8">  V</ion-select-option>
+      <ion-select-option value="7">  VI</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item class="fields">
+    <ion-input [(ngModel)]="dirCity" type="text" placeholder="Hometown"></ion-input>
+  </ion-item>
+
+  <br>
+  <br>
+
+  <div class="center">
+    <ion-button (click)="reset()" class="reset" fill="outline" color="danger">Clear search</ion-button>
+  </div>
+
+  <br *ngIf="showDirectorySpinner"><br *ngIf="showDirectorySpinner"><br *ngIf="showDirectorySpinner">
+  <ion-spinner *ngIf="showDirectorySpinner" name="crescent"></ion-spinner>
+
+</ion-content>

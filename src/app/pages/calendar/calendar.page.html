@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar [color]="dataProvider.darkMode ? 'dark' : 'nobles'">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>Calendar</ion-title>
+    <ion-buttons slot="end" class="dark-mode-icon">
+      <ion-icon (click)="dataProvider.switchDarkMode()" [name]="dataProvider.darkMode ? 'moon' : 'moon-outline'"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [ngClass]="dataProvider.darkMode ? 'dark-content' : 'light-content'">
+
+  <ion-refresher [ngClass]="dataProvider.darkMode ? 'dark-ref-bg' : 'light-ref-bg'" slot="fixed" (ionRefresh)="doRefresh($event)">
+    <br><br>
+    <ion-refresher-content [ngClass]="dataProvider.darkMode ? 'dark-ref-bg' : 'light-ref-bg'" pullingIcon="arrow-dropdown" refreshingSpinner="crescent">
+    </ion-refresher-content>
+  </ion-refresher>
+  <br>
+  <ion-searchbar></ion-searchbar>
+  <br>
+  <div *ngFor="let i of nums">
+  
+      <ion-card (click)="openModal(i)">
+        <ion-card-header color="darkgray">{{ dataProvider.calDateStart[i] }}</ion-card-header>
+        <ion-card-content>
+          <div class="info">
+            <h5 class="start-time"><b>{{ dataProvider.calTimeStart[i] }}</b></h5>
+            <h5>{{ dataProvider.calTimeEnd[i] }}</h5>
+          </div>
+          <div class="event-name">
+          <ion-label class="ion-text-wrap">
+            <h4>{{ dataProvider.calTitle[i] }}</h4>
+          </ion-label>
+        </div>
+        </ion-card-content>
+      </ion-card>
+    
+  </div>
+
+</ion-content>

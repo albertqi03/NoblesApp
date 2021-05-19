@@ -1,0 +1,134 @@
+ion-item {
+}
+
+.center {
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+ion-card {
+    margin-top: 0px;
+    margin-bottom: 16px;
+    padding-bottom: 2%;
+    border-radius: 14px;
+}
+
+ion-segment {
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 90%;
+}
+
+ion-segment-button {
+    width: 50%;
+}
+
+ion-card-header {
+    padding-top: 3%;
+    padding-bottom: 0%;
+    padding-left: 16px;
+    text-align: center;
+    font-size: 14px;
+}
+
+ion-card-title {
+    font-weight: normal;
+    text-align: center;
+    padding-top: 16px;
+}
+
+ion-card-content {
+    padding-top: 18px;
+    padding-bottom: 12px;
+}
+
+.logos {
+    padding-top: 3.9%;
+    padding-left: 5%;
+    padding-right: 2%;
+    width: 15%;
+    float: left;
+}
+
+.school-names {
+    width: 50%;
+    float: left;
+}
+
+.scores {
+    width: 11%;
+    float: right;
+    text-align: center;
+    padding-right: 4%;
+}
+
+.date {
+    width: 19%;
+    float: right;
+    text-align: center;
+    padding-right: 2%;
+    padding-left: 2%;
+}
+
+.upcoming-date {
+    width: 30%;
+    float: right;
+    text-align: right;
+    padding-right: 4.5%;
+    padding-left: 2%;
+}
+
+.logo {
+    width: 65%;
+    height: 65%;
+    padding-bottom: 8px;
+}
+
+.logo-second {
+    width: 65%;
+    height: 65%;
+}
+
+h5 {
+    font-size: 15px;
+    // color: black;
+}
+
+.dark-h5 {
+    color: white;
+}
+
+.light-h5 {
+    color: black;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+info {
+    color: gray;
+}
+
+ion-footer {
+    text-align: center;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    clear: both;
+    border: none;
+}
+
+.dark-mode-icon {
+    font-size: 24px;
+    padding-right: 2.5%;
+}
+
+.dark-ref-bg {
+    background-color: #1E1E1E;
+    padding-bottom: 100%;
+}
+
+.light-ref-bg {
+    background-color: #F5F5F5;
+    padding-bottom: 100%;
+}

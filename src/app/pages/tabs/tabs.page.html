@@ -1,0 +1,27 @@
+<ion-content [ngClass]="dataProvider.darkMode ? 'dark-tab' : 'light-tab'">
+  <ion-tabs>
+    <ion-tab-bar slot="bottom">
+
+      <ion-tab-button tab="schedule" [ngClass]="dataProvider.darkMode ? 'dark-tab-button' : 'light-tab-button'">
+        <ion-icon name="list"></ion-icon>
+      </ion-tab-button>
+
+      <ion-tab-button tab="directory" [ngClass]="dataProvider.darkMode ? 'dark-tab-button' : 'light-tab-button'">
+        <ion-icon name="search"></ion-icon>
+      </ion-tab-button>
+
+      <ion-tab-button tab="castle" [ngClass]="dataProvider.darkMode ? 'dark-tab-button' : 'light-tab-button'">
+        <ion-icon name="restaurant"></ion-icon>
+      </ion-tab-button>
+
+      <ion-tab-button tab="athletics" [ngClass]="dataProvider.darkMode ? 'dark-tab-button' : 'light-tab-button'">
+        <ion-icon name="basketball"></ion-icon>
+      </ion-tab-button>
+
+      <ion-tab-button tab="my-info" [ngClass]="dataProvider.darkMode ? 'dark-tab-button' : 'light-tab-button'">
+        <ion-icon name="person-circle"></ion-icon>
+      </ion-tab-button>
+
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-content>

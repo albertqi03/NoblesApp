@@ -1,0 +1,36 @@
+ion-content {
+    --ion-background-color:	#F5F5F5;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+}
+
+img {
+    border-radius: 10px;
+}
+
+ion-list {
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.info {
+    margin-top: 16px;
+}
+
+.ion-text-wrap {
+    font-size: 18px;
+}
+
+.maplink {
+    --color: #929292;
+}
+
+.dark-mode-icon {
+    font-size: 24px;
+    padding-right: 2.5%;
+}

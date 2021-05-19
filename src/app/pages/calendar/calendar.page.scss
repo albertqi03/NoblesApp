@@ -1,0 +1,75 @@
+ion-card-header {
+    height: 28px;
+    padding-left: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: left;
+    font-size: 14px;
+    color: black;
+    background-color: rgb(221, 221, 221);
+    padding-bottom: 2%;
+    font-weight: bold;
+}
+
+ion-card {
+    width: 100%;
+    margin: auto;
+    border-radius: 0px;
+}
+
+ion-card-content {
+    color: black;
+}
+
+h5 {
+    font-size: 11px;
+    padding-right: 12px;
+}
+
+.start-time {
+    color: black;
+    padding-bottom: 6px;
+}
+
+.event-name {
+    font-size: 16px;
+    padding-top: 1px;
+    padding-left: 12px;
+    width: 75%;
+    float: left;
+    vertical-align: center;
+}
+
+h4 {
+    font-size: 16px;
+    color: black;
+}
+
+.info {
+    padding-top: 6px;
+    padding-right: 6px;
+    padding-bottom: 15px;
+    margin-left: none;
+    text-align: center;
+    width: 22%;
+    float: left;
+    vertical-align: center;
+    border-right-style: solid;
+    border-right-width: 2.5px;
+    border-right-color: rgb(99, 99, 231);
+}
+
+.dark-mode-icon {
+    font-size: 24px;
+    padding-right: 2.5%;
+}
+
+.dark-ref-bg {
+    background-color: #1E1E1E;
+    padding-bottom: 100%;
+}
+
+.light-ref-bg {
+    background-color: #F5F5F5;
+    padding-bottom: 100%;
+}

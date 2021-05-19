@@ -1,0 +1,66 @@
+<ion-split-pane contentId="main">
+  <ion-menu contentId="main">
+    <ion-header>
+      <ion-toolbar [color]="dataProvider.darkMode ? 'dark' : 'nobles'">
+        <ion-title>Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content [ngClass]="dataProvider.darkMode ? 'dark-content' : 'light-content'">
+      
+      <br>
+
+      <ion-avatar>
+        <img src='{{ dataProvider.Photo }}' class="center">
+      </ion-avatar>
+
+      <h2 style="text-align: center;"><ion-label [color]="dataProvider.darkMode ? 'white' : 'black'">Welcome, {{ dataProvider.FirstName }}!</ion-label></h2>
+      <br>
+      <ion-list>
+        <ion-menu-toggle auto-hide="false" *ngFor="let p of pages">
+          <ion-item [routerLink]="p.url" routerDirection="forward" [class.active-item]="selectedPath.startsWith(p.url)" lines="none" class="list-item" detail="false">
+            <ion-icon [color]="dataProvider.darkMode ? 'white' : 'black'" [name]="p.icon" slot="start"></ion-icon>
+            <ion-label [color]="dataProvider.darkMode ? 'white' : 'black'">
+              {{ p.title }}
+            </ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+
+        <ion-item routerLink="#" tappable (click)="goToNobleman()" lines="none" class="list-item" detail="false">
+          <ion-icon [color]="dataProvider.darkMode ? 'white' : 'black'" name="newspaper-outline" slot="start"></ion-icon>
+          <ion-label [color]="dataProvider.darkMode ? 'white' : 'black'">
+            Nobleman
+          </ion-label>
+        </ion-item>
+
+        <ion-item routerLink="#" tappable (click)="goToNoblesWebsite()" lines="none" class="list-item" detail="false">
+          <ion-icon [color]="dataProvider.darkMode ? 'white' : 'black'" name="desktop-outline" slot="start"></ion-icon>
+          <ion-label [color]="dataProvider.darkMode ? 'white' : 'black'">
+            Nobles Website
+          </ion-label>
+        </ion-item>
+
+        <ion-menu-toggle auto-hide="false">
+          <ion-item routerLink="/menu/settings" routerDirection="forward" [class.active-item]="selectedPath.startsWith('/menu/settings')" lines="none" class="list-item" detail="false">
+            <ion-icon [color]="dataProvider.darkMode ? 'white' : 'black'" name="settings-outline" slot="start"></ion-icon>
+            <ion-label [color]="dataProvider.darkMode ? 'white' : 'black'">
+              Settings
+            </ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+
+        <ion-item routerLink="/login" routerDirection="root" tappable (click)="logout()" lines="none" class="logout" detail="false">
+          <ion-icon [color]="dataProvider.darkMode ? 'white' : 'black'" name="log-out-outline" slot="start"></ion-icon>
+          <ion-label [color]="dataProvider.darkMode ? 'white' : 'black'">
+            Logout
+          </ion-label>
+        </ion-item>
+
+      </ion-list>
+    </ion-content>
+
+  </ion-menu>
+
+  <ion-router-outlet id="main"></ion-router-outlet>
+  
+</ion-split-pane>

@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar [color]="dataProvider.darkMode ? 'dark' : 'nobles'">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>Send Feedback</ion-title>
+    <ion-buttons slot="end" class="dark-mode-icon">
+      <ion-icon (click)="dataProvider.switchDarkMode()" [name]="dataProvider.darkMode ? 'moon' : 'moon-outline'"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [ngClass]="dataProvider.darkMode ? 'dark-content' : 'light-content'">
+  <ion-list>
+    <ion-item lines="full">
+      <ion-input [(ngModel)]="feedbackName" type="text" placeholder="Name"></ion-input>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-input [(ngModel)]="feedbackEmail" type="text" placeholder="Email"></ion-input>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-input [(ngModel)]="feedbackSubject" type="text" placeholder="Subject"></ion-input>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label>Feedback Type</ion-label>
+      <ion-select [(ngModel)]="feedbackType">
+        <ion-select-option value="Feature Request">Feature Request</ion-select-option>
+        <ion-select-option value="Bug Report">Bug Report</ion-select-option>
+        <ion-select-option value="Performance">Performance</ion-select-option>
+        <ion-select-option value="Device Compatibility">Device Compatibility</ion-select-option>
+        <ion-select-option value="Other">Other</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-input [(ngModel)]="feedbackDevice" type="text" placeholder="Device Model"></ion-input>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-input [(ngModel)]="feedbackComments" type="text" placeholder="Comments"></ion-input>
+    </ion-item>
+    <ion-item button (click)="submitFeedback()" lines="full">
+      <ion-label color="primary">Submit</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

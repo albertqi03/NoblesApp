@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar [color]="dataProvider.darkMode ? 'dark' : 'nobles'">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>Make a Reservation</ion-title>
+    <ion-buttons slot="end" class="dark-mode-icon">
+      <ion-icon (click)="dataProvider.switchDarkMode()" [name]="dataProvider.darkMode ? 'moon' : 'moon-outline'">
+      </ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [ngClass]="dataProvider.darkMode ? 'dark-content' : 'light-content'">
+
+  <ion-item [ngClass]="dataProvider.darkMode ? 'dark-header' : 'light-header'" button detail='false'
+    (click)="submitRes()" lines="full">
+    <ion-label [color]="dataProvider.darkMode ? 'white' : 'black'">Submit</ion-label>
+    <ion-icon class="blue" name="chevron-forward-outline"></ion-icon>
+  </ion-item>
+
+
+  <div [ngSwitch]="resMealType">
+    <div *ngSwitchCase="'Breakfast'" class="money">
+      <b>$3.00</b>
+    </div>
+
+    <div *ngSwitchCase="'Dinner'" class="money">
+      <b>$5.00</b>
+    </div>
+  </div>
+
+  <ion-segment [(ngModel)]="resMealType" [color]="dataProvider.darkMode ? 'darknobles' : 'nobles'" class="segment-bar"
+    mode="ios">
+    <ion-segment-button value="Breakfast">
+      <ion-label [color]="dataProvider.darkMode ? 'noblesDark' : 'black'">Breakfast</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="Dinner">
+      <ion-label [color]="dataProvider.darkMode ? 'noblesDark' : 'black'">Dinner</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <br>
+
+  <ion-item>
+    <ion-label>Date</ion-label>
+    <ion-datetime [(ngModel)]="resDate" displayFormat="MMMM DD, YYYY" [min]="minDate" [max]="maxDate"></ion-datetime>
+  </ion-item>
+
+</ion-content>

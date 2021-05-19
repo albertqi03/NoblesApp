@@ -1,0 +1,89 @@
+<ion-header>
+  <ion-toolbar [color]="dataProvider.darkMode ? 'dark' : 'nobles'">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>My Afternoon Program</ion-title>
+    <ion-buttons slot="end" class="dark-mode-icon">
+      <ion-icon (click)="dataProvider.switchDarkMode()" [name]="dataProvider.darkMode ? 'moon' : 'moon-outline'"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [ngClass]="dataProvider.darkMode ? 'dark-content' : 'light-content'">
+
+  <ion-refresher [ngClass]="dataProvider.darkMode ? 'dark-ref-bg' : 'light-ref-bg'" slot="fixed">
+    <br><br>
+    <ion-refresher-content [ngClass]="dataProvider.darkMode ? 'dark-ref-bg' : 'light-ref-bg'" pullingIcon="arrow-dropdown" refreshingSpinner="crescent">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <br>
+
+  <ion-header><h2 style="text-align: center;">Basketball Boys Thirds</h2></ion-header>
+
+  <ion-card>
+        <ion-card-header color="darkgray"><b>Today</b></ion-card-header>
+        <ion-card-content>
+          <div class="practice-info">
+            <h5 class="start-time"><b>9:00 AM</b></h5>
+            <h5>12:00 PM</h5>
+            <br>
+          </div>
+          <div class="event-name">
+          <ion-label class="ion-text-wrap">
+            <h4>Practice - Rappaport</h4>
+          </ion-label>
+        </div>
+        </ion-card-content>
+      </ion-card>
+
+  <ion-card>
+    <ion-card-header color="darkgray">Thu Jul 2</ion-card-header>
+    <ion-card-content>
+      <div class="game-info">
+        <h5 class="start-time"><b>9:00 AM</b></h5>
+        <h5>12:00 PM</h5>
+        <br>
+      </div>
+      <div class="event-name">
+      <ion-label class="ion-text-wrap">
+        <h4>Away @ St. Sebastian's</h4>
+      </ion-label>
+    </div>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header color="darkgray">Fri Jul 3</ion-card-header>
+    <ion-card-content>
+      <div class="game-info">
+        <h5 class="start-time"><b>9:00 AM</b></h5>
+        <h5>12:00 PM</h5>
+        <br>
+      </div>
+      <div class="event-name">
+      <ion-label class="ion-text-wrap">
+        <h4>Home vs. BB&N</h4>
+      </ion-label>
+    </div>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header color="darkgray">Mon Jul 6</ion-card-header>
+    <ion-card-content>
+      <div class="practice-info">
+        <h5 class="start-time"><b>9:00 AM</b></h5>
+        <h5>12:00 PM</h5>
+        <br>
+      </div>
+      <div class="event-name">
+      <ion-label class="ion-text-wrap">
+        <h4>Practice - Rappaport</h4>
+      </ion-label>
+    </div>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

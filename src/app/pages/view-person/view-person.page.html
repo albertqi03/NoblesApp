@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar [color]="dataProvider.darkMode ? 'dark' : 'nobles'">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>About {{ person.children[1].innerHTML }}</ion-title>
+    <ion-buttons slot="end" class="dark-mode-icon">
+      <ion-icon (click)="dataProvider.switchDarkMode()" [name]="dataProvider.darkMode ? 'moon' : 'moon-outline'"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-header [ngClass]="dataProvider.darkMode ? 'dark-header' : 'light-header'">
+  <ion-item button (click)="initViewSchedule()" lines="full">
+    <ion-label [color]="dataProvider.darkMode ? 'white' : 'black'">View Schedule</ion-label>
+  </ion-item>
+</ion-header>
+
+<ion-content [ngClass]="dataProvider.darkMode ? 'dark-content' : 'light-content'">
+  <br>
+  <img src="https://nobilis.nobles.edu/images_sitewide/photos/{{ person.id }}.jpeg" alt="Profile Photo" class="center">
+
+  <ion-list class="info">
+    <ion-item>
+      <ion-label stacked color="nobles">Name</ion-label>
+      <ion-label class="ion-text-wrap">{{ person.children[1].innerHTML }} {{ person.children[0].innerHTML }}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked color="nobles">Email</ion-label>
+      <ion-label class="ion-text-wrap"><a href="mailto:{{ person.children[2].innerHTML }}" target="_top">{{person.children[2].innerHTML }}</a></ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked color="nobles">Home Phone</ion-label>
+      <ion-label class="ion-text-wrap"><a href="tel:{{ person.children[4].innerHTML }}" class="button button-positive">{{ person.children[4].innerHTML }}</a></ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked color="nobles">Cell Phone</ion-label>
+      <ion-label class="ion-text-wrap"><a href="tel:{{ person.children[3].innerHTML }}" class="button button-positive">{{ person.children[3].innerHTML }}</a></ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked color="nobles">Address</ion-label>
+      <ion-label *ngIf="dataProvider.dirPersonHasAddress" class="ion-text-wrap"><a href="http://maps.google.com/?q={{ person.children[7].innerHTML }}, {{ person.children[9].innerHTML }}, {{ person.children[10].innerHTML }}" class="button button-positive">{{ person.children[7].innerHTML }}, {{ person.children[9].innerHTML }},
+        {{ person.children[10].innerHTML }} {{ person.children[11].innerHTML }}</a></ion-label>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

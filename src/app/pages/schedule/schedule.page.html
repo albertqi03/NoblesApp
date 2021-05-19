@@ -1,0 +1,131 @@
+<ion-header>
+  <ion-toolbar [color]="dataProvider.darkMode ? 'dark' : 'nobles'">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>My Schedule</ion-title>
+    <ion-buttons slot="end" class="dark-mode-icon">
+      <ion-icon (click)="dataProvider.switchDarkMode()" (click)="doRefresh($event)" [name]="dataProvider.darkMode ? 'moon' : 'moon-outline'"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [ngClass]="dataProvider.darkMode ? 'dark-content' : 'light-content'">
+  
+  <ion-refresher [ngClass]="dataProvider.darkMode ? 'dark-ref-bg' : 'light-ref-bg'" slot="fixed" (ionRefresh)="doRefresh($event)">
+    <br><br>
+    <ion-refresher-content [ngClass]="dataProvider.darkMode ? 'dark-ref-bg' : 'light-ref-bg'" pullingIcon="arrow-dropdown" refreshingSpinner="crescent">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <br>
+
+  <ion-segment [(ngModel)]="dayName" [color]="dataProvider.darkMode ? 'darknobles' : 'nobles'" mode="ios">
+    <ion-segment-button value="Monday"><div><ion-label [color]="dataProvider.darkMode ? 'noblesDark' : 'black'">Mon</ion-label></div></ion-segment-button>
+    <ion-segment-button value="Tuesday"><div><ion-label [color]="dataProvider.darkMode ? 'noblesDark' : 'black'">Tue</ion-label></div></ion-segment-button>
+    <ion-segment-button value="Wednesday"><div><ion-label [color]="dataProvider.darkMode ? 'noblesDark' : 'black'">Wed</ion-label></div></ion-segment-button>
+    <ion-segment-button value="Thursday"><div><ion-label [color]="dataProvider.darkMode ? 'noblesDark' : 'black'">Thu</ion-label></div></ion-segment-button>
+    <ion-segment-button value="Friday"><div><ion-label [color]="dataProvider.darkMode ? 'noblesDark' : 'black'">Fri</ion-label></div></ion-segment-button>
+  </ion-segment>
+
+  <br>
+
+  <div [ngSwitch]="dayName">
+
+    <div id="Monday" *ngSwitchCase="'Monday'">
+      <div *ngFor="let i of nums[0]">
+
+        <ion-label [color]="dataProvider.darkMode ? 'white' : 'black'" class="times" padding>
+          {{ dataProvider.startTimes[0][i] }} - {{ dataProvider.endTimes[0][i] }}
+        </ion-label>
+        <ion-item (click)="getRoster(0, i)" color="{{ dataProvider.scheduleColors[0][i] }}" lines="none">
+          <ion-label [color]="dataProvider.darkMode ? 'white' : 'black'">
+            <div class="courseName">{{ dataProvider.courseNames[0][i] }}</div>
+            <div class="infoBelow">
+              {{ dataProvider.teachers[0][i] }}<br>
+              {{ dataProvider.locations[0][i] }}</div>
+          </ion-label>
+        </ion-item>
+        <br>
+
+      </div>
+    </div>
+
+    <div id="Tuesday" *ngSwitchCase="'Tuesday'">
+      <div *ngFor="let i of nums[1]">
+
+        <ion-label [color]="dataProvider.darkMode ? 'white' : 'black'" class="times" padding>
+          {{ dataProvider.startTimes[1][i] }} - {{ dataProvider.endTimes[1][i] }}
+        </ion-label>
+        <ion-item (click)="getRoster(1, i)" color="{{ dataProvider.scheduleColors[1][i] }}" lines="none">
+          <ion-label [color]="dataProvider.darkMode ? 'white' : 'black'">
+            <div class="courseName">{{ dataProvider.courseNames[1][i] }}</div>
+            <div class="infoBelow">
+              {{ dataProvider.teachers[1][i] }}<br>
+              {{ dataProvider.locations[1][i] }}</div>
+          </ion-label>
+        </ion-item>
+        <br>
+
+      </div>
+    </div>
+
+    <div id="Wednesday" *ngSwitchCase="'Wednesday'">
+      <div *ngFor="let i of nums[2]">
+
+        <ion-label [color]="dataProvider.darkMode ? 'white' : 'black'" class="times" padding>
+          {{ dataProvider.startTimes[2][i] }} - {{ dataProvider.endTimes[2][i] }}
+        </ion-label>
+        <ion-item (click)="getRoster(2, i)" color="{{ dataProvider.scheduleColors[2][i] }}" lines="none">
+          <ion-label [color]="dataProvider.darkMode ? 'white' : 'black'">
+            <div class="courseName">{{ dataProvider.courseNames[2][i] }}</div>
+            <div class="infoBelow">
+              {{ dataProvider.teachers[2][i] }}<br>
+              {{ dataProvider.locations[2][i] }}</div>
+          </ion-label>
+        </ion-item>
+        <br>
+
+      </div>
+    </div>
+
+    <div id="Thursday" *ngSwitchCase="'Thursday'">
+      <div *ngFor="let i of nums[3]">
+
+        <ion-label [color]="dataProvider.darkMode ? 'white' : 'black'" class="times" padding>
+          {{ dataProvider.startTimes[3][i] }} - {{ dataProvider.endTimes[3][i] }}
+        </ion-label>
+        <ion-item (click)="getRoster(3, i)" color="{{ dataProvider.scheduleColors[3][i] }}" lines="none">
+          <ion-label>
+            <div class="courseName">{{ dataProvider.courseNames[3][i] }}</div>
+            <div class="infoBelow">
+              {{ dataProvider.teachers[3][i] }}<br>
+              {{ dataProvider.locations[3][i] }}</div>
+          </ion-label>
+        </ion-item>
+        <br>
+
+      </div>
+    </div>
+
+    <div id="Friday" *ngSwitchCase="'Friday'">
+      <div *ngFor="let i of nums[4]">
+
+        <ion-label [color]="dataProvider.darkMode ? 'white' : 'black'" class="times" padding>
+          {{ dataProvider.startTimes[4][i] }} - {{ dataProvider.endTimes[4][i] }}
+        </ion-label>
+        <ion-item (click)="getRoster(4, i)" color="{{ dataProvider.scheduleColors[4][i] }}" lines="none">
+          <ion-label>
+            <div class="courseName">{{ dataProvider.courseNames[4][i] }}</div>
+            <div class="infoBelow">
+              {{ dataProvider.teachers[4][i] }}<br>
+              {{ dataProvider.locations[4][i] }}</div>
+          </ion-label>
+        </ion-item>
+        <br>
+
+      </div>
+    </div>
+
+  </div>
+</ion-content>

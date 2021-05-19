@@ -1,0 +1,22 @@
+.dark-tab-button {
+    --color-selected: var(--ion-color-darknobles);
+}
+
+.light-tab-button {
+    --color-selected: var(--ion-color-nobles);
+}
+
+.dark-tab {
+    --ion-background-color: var(--ion-color-dark);
+    --overflow: hidden;
+}
+
+.light-tab {
+    --ion-background-color: var(--ion-color-white);
+    --overflow: hidden;
+}
+
+.dark-mode-icon {
+    font-size: 24px;
+    padding-right: 2.5%;
+}

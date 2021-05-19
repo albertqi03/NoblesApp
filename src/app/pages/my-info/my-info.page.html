@@ -1,0 +1,122 @@
+<ion-header>
+  <ion-toolbar [color]="dataProvider.darkMode ? 'dark' : 'nobles'">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>My Information</ion-title>
+    <ion-buttons slot="end" class="dark-mode-icon">
+      <ion-icon (click)="dataProvider.switchDarkMode()" [name]="dataProvider.darkMode ? 'moon' : 'moon-outline'">
+      </ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [ngClass]="dataProvider.darkMode ? 'dark-content' : 'light-content'">
+
+  <ion-refresher [ngClass]="dataProvider.darkMode ? 'dark-ref-bg' : 'light-ref-bg'" slot="fixed"
+    (ionRefresh)="doRefresh($event)">
+    <br><br>
+    <ion-refresher-content [ngClass]="dataProvider.darkMode ? 'dark-ref-bg' : 'light-ref-bg'"
+      pullingIcon="arrow-dropdown" refreshingSpinner="crescent">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <br>
+  <img src='{{ dataProvider.Photo }}' alt="Profile Photo" class="center">
+  <br>
+  <ion-segment [(ngModel)]="infoType" [color]="dataProvider.darkMode ? 'darknobles' : 'nobles'" mode="ios">
+    <ion-segment-button value="about-me">
+      <div [ngClass]="dataProvider.darkMode ? 'darkSegment' : 'lightSegment'">
+        <ion-label [color]="dataProvider.darkMode ? 'noblesDark' : 'black'">About Me</ion-label>
+      </div>
+    </ion-segment-button>
+    <ion-segment-button value="financial">
+      <div [ngClass]="dataProvider.darkMode ? 'darkSegment' : 'lightSegment'">
+        <ion-label [color]="dataProvider.darkMode ? 'noblesDark' : 'black'">Financial</ion-label>
+      </div>
+    </ion-segment-button>
+    <ion-segment-button value="service">
+      <div [ngClass]="dataProvider.darkMode ? 'darkSegment' : 'lightSegment'">
+        <ion-label [color]="dataProvider.darkMode ? 'noblesDark' : 'black'">Service</ion-label>
+      </div>
+    </ion-segment-button>
+  </ion-segment>
+  <br>
+  <div [ngSwitch]="infoType">
+
+    <ion-list *ngSwitchCase="'about-me'">
+      <ion-item>
+        <ion-label stacked [color]="dataProvider.darkMode ? 'darknobles' : 'nobles'">Assembly Seat</ion-label>
+        <ion-label [color]="dataProvider.darkMode ? 'white' : 'black'">{{ dataProvider.AssemblySeat }}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked [color]="dataProvider.darkMode ? 'darknobles' : 'nobles'">Shattuck Locker #</ion-label>
+        <ion-label [color]="dataProvider.darkMode ? 'white' : 'black'">{{ dataProvider.ShattuckNum }}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked [color]="dataProvider.darkMode ? 'darknobles' : 'nobles'">Locker Combo</ion-label>
+        <ion-label [color]="dataProvider.darkMode ? 'white' : 'black'">{{ dataProvider.ShattuckCombo }}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked [color]="dataProvider.darkMode ? 'darknobles' : 'nobles'">MAC Locker #</ion-label>
+        <ion-label [color]="dataProvider.darkMode ? 'white' : 'black'">{{ dataProvider.MACNum }}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked [color]="dataProvider.darkMode ? 'darknobles' : 'nobles'">Locker Combo</ion-label>
+        <ion-label [color]="dataProvider.darkMode ? 'white' : 'black'">{{ dataProvider.MACCombo }}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked [color]="dataProvider.darkMode ? 'darknobles' : 'nobles'">MS Cubby #</ion-label>
+        <ion-label [color]="dataProvider.darkMode ? 'white' : 'black'">{{ dataProvider.MSCubbyNum }}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked [color]="dataProvider.darkMode ? 'darknobles' : 'nobles'">Cubby Combo</ion-label>
+        <ion-label [color]="dataProvider.darkMode ? 'white' : 'black'">{{ dataProvider.MSCubbyCombo }}</ion-label>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'financial'">
+      <ion-item>
+        <ion-label stacked [color]="dataProvider.darkMode ? 'darknobles' : 'nobles'">Bookstore Amount</ion-label>
+        <ion-label [color]="dataProvider.darkMode ? 'white' : 'black'">{{ dataProvider.BookstoreAmount }}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked [color]="dataProvider.darkMode ? 'darknobles' : 'nobles'">Bookstore Spent</ion-label>
+        <ion-label [color]="dataProvider.darkMode ? 'white' : 'black'">{{ dataProvider.BookstoreSpent }}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked [color]="dataProvider.darkMode ? 'darknobles' : 'nobles'">Athletic Store Amount</ion-label>
+        <ion-label [color]="dataProvider.darkMode ? 'white' : 'black'">{{ dataProvider.AthleticStoreAmount }}
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked [color]="dataProvider.darkMode ? 'darknobles' : 'nobles'">Athletic Store Spent</ion-label>
+        <ion-label [color]="dataProvider.darkMode ? 'white' : 'black'">{{ dataProvider.AthleticStoreSpent }}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked [color]="dataProvider.darkMode ? 'darknobles' : 'nobles'">Snack Bar Amount</ion-label>
+        <ion-label [color]="dataProvider.darkMode ? 'white' : 'black'">{{ dataProvider.SnackBarAmount }}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked [color]="dataProvider.darkMode ? 'darknobles' : 'nobles'">Snack Bar Spent</ion-label>
+        <ion-label [color]="dataProvider.darkMode ? 'white' : 'black'">{{ dataProvider.SnackBarSpent }}</ion-label>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'service'">
+      <ion-item>
+        <ion-label stacked [color]="dataProvider.darkMode ? 'darknobles' : 'nobles'">Hours</ion-label>
+        <ion-label [color]="dataProvider.darkMode ? 'darknobles' : 'nobles'">Years</ion-label>
+        <ion-label [color]="dataProvider.darkMode ? 'darknobles' : 'nobles'">Organization</ion-label>
+      </ion-item>
+      <div *ngFor="let i of nums">
+        <ion-item>
+          <ion-label stacked [color]="dataProvider.darkMode ? 'white' : 'black'">{{ dataProvider.commServHours[i] }}</ion-label>
+          <ion-label [color]="dataProvider.darkMode ? 'white' : 'black'">{{ dataProvider.commServYear[i] }}</ion-label>
+          <ion-label [color]="dataProvider.darkMode ? 'white' : 'black'">{{ dataProvider.commServOrg[i] }}</ion-label>
+        </ion-item>
+      </div>
+    </ion-list>
+
+  </div>
+</ion-content>

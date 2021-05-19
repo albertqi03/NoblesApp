@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar [color]="dataProvider.darkMode ? 'dark' : 'nobles'">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>About</ion-title>
+    <ion-buttons slot="end" class="dark-mode-icon">
+      <ion-icon (click)="dataProvider.switchDarkMode()" [name]="dataProvider.darkMode ? 'moon' : 'moon-outline'"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [ngClass]="dataProvider.darkMode ? 'dark-content' : 'light-content'">
+  <div [ngClass]="dataProvider.darkMode ? 'dark-text' : 'light-text'">
+    Special thanks to Tessy Smith and Dominic Manzo for making this possible! And also that guy from Stack Overflow.<br>
+    <br>
+    Lead Developer and Co-Designer: Albert Qi<br>
+    Lead Designer: Andrew Hesp<br>
+    Co-Developer: Rohan Sharma<br>
+    <br>
+    Emotional Support: Augustin Roy and Robert Fuller
+  </div>
+</ion-content>

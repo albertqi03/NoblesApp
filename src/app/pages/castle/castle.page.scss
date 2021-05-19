@@ -1,0 +1,86 @@
+ion-header {
+    border: none;
+}
+
+.dark-header {
+    --ion-background-color: #242424;
+}
+
+.light-header {
+    --ion-background-color: #ffffff;
+}
+
+ion-segment-button {
+    min-width: 10%;
+}
+
+ion-segment {
+    margin-left: 3%;
+    margin-right: 3%;
+    width: 94%;
+}
+
+.segment-bar {
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 80%;
+}
+
+ion-button {
+    width: 50%;
+    height: 20px;
+    font-size: small;
+    margin-left: auto;
+    margin-right: auto;
+    --border-width: 1px;
+    --border-radius: 20px;
+}
+
+ion-footer {
+    font-size: small;
+    text-align: center;
+    border: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.dark-footer {
+    background: #1E1E1E;
+}
+
+.light-footer {
+    background: #F5F5F5;
+}
+
+.mealtimes {
+    margin-bottom: 0px;
+}
+
+.dark-mode-icon {
+    font-size: 24px;
+    padding-right: 2.5%;
+}
+
+.dark-ref-bg {
+    background-color: #1E1E1E;
+    padding-bottom: 100%;
+}
+
+.light-ref-bg {
+    background-color: #F5F5F5;
+    padding-bottom: 100%;
+}
+
+.whiteMenuText {
+    color: white;
+    padding-left: 4.5%;
+    padding-right: 4.5%;
+    padding-bottom: 4.5%;
+}
+
+.blackMenuText {
+    color: black;
+    padding-left: 4.5%;
+    padding-right: 4.5%;
+    padding-bottom: 4.5%;
+}

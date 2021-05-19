@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar [color]="dataProvider.darkMode ? 'dark' : 'nobles'">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="" (click)="closeModal()"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Event Details</ion-title>
+    <ion-buttons slot="end" class="dark-mode-icon">
+      <ion-icon (click)="dataProvider.switchDarkMode()" [name]="dataProvider.darkMode ? 'moon' : 'moon-outline'"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="modal-text">
+    Location: {{ location }}<br>
+    Description: {{ description }}
+  </div>
+
+  <ion-footer>
+    <ion-toolbar [color]="dataProvider.darkMode ? 'dark' : 'nobles'" class="footer-toolbar" (click)="closeModal()">
+      <b>Close</b>
+    </ion-toolbar>
+  </ion-footer>
+
+</ion-content>
